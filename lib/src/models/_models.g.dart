@@ -6,31 +6,43 @@ part of '_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
-    _$ArticleImpl(
-      articleId: json['articleId'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String,
-      body: json['body'] as String?,
-      parentId: json['parentId'] as String?,
-      helpCenterId: json['helpCenterId'] as String,
-      organizationId: json['organizationId'] as String,
-      state: json['state'] as String,
-      locale: json['locale'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      slug: json['slug'] as String,
-      featurebaseUrl: json['featurebaseUrl'] as String,
-      externalUrl: json['externalUrl'] as String?,
-      isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool,
-      isPublished: json['isPublished'] as bool,
-      availableLocales: (json['availableLocales'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      publishedLocales: (json['publishedLocales'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-    );
+_$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'description',
+      'helpCenterId',
+      'organizationId',
+      'locale',
+      'slug',
+      'featurebaseUrl'
+    ],
+  );
+  return _$ArticleImpl(
+    articleId: json['articleId'] as String? ?? '',
+    title: json['title'] as String? ?? '',
+    description: json['description'] as String,
+    body: json['body'] as String?,
+    parentId: json['parentId'] as String?,
+    helpCenterId: json['helpCenterId'] as String,
+    organizationId: json['organizationId'] as String,
+    state: json['state'] as String? ?? 'live',
+    locale: json['locale'] as String,
+    createdAt: DateTime.parse(json['createdAt'] as String),
+    updatedAt: DateTime.parse(json['updatedAt'] as String),
+    slug: json['slug'] as String,
+    featurebaseUrl: json['featurebaseUrl'] as String,
+    externalUrl: json['externalUrl'] as String?,
+    isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool,
+    isPublished: json['isPublished'] as bool,
+    availableLocales: (json['availableLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    publishedLocales: (json['publishedLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
     <String, dynamic>{

@@ -21,12 +21,19 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Article {
   /// The article's unique ID.
+  ///
+  /// TODO: Check why sometimes articleId can be null
+  @JsonKey(name: 'articleId', defaultValue: '')
   String get articleId => throw _privateConstructorUsedError;
 
   /// The title of the article.
+  ///
+  /// TODO: Check why sometimes title can be null
+  @JsonKey(name: 'title', defaultValue: '')
   String get title => throw _privateConstructorUsedError;
 
   /// A brief description of the article.
+  @JsonKey(name: 'description', required: true)
   String get description => throw _privateConstructorUsedError;
 
   /// The HTML content of the article.
@@ -38,15 +45,19 @@ mixin _$Article {
   String? get parentId => throw _privateConstructorUsedError;
 
   /// The ID of the help center this article belongs to.
+  @JsonKey(name: 'helpCenterId', required: true)
   String get helpCenterId => throw _privateConstructorUsedError;
 
   /// The ID of the organization that the article belongs to.
+  @JsonKey(name: 'organizationId', required: true)
   String get organizationId => throw _privateConstructorUsedError;
 
   /// The state of the article, either "live" or "draft".
+  @JsonKey(name: 'state', defaultValue: 'live')
   String get state => throw _privateConstructorUsedError;
 
   /// The locale of the article.
+  @JsonKey(name: 'locale', required: true)
   String get locale =>
       throw _privateConstructorUsedError; //TODO: add translations
   /// The date when the article was created.
@@ -56,9 +67,11 @@ mixin _$Article {
   DateTime get updatedAt =>
       throw _privateConstructorUsedError; //TODO: add author
   /// The URL-friendly slug of the article.
+  @JsonKey(name: 'slug', required: true)
   String get slug => throw _privateConstructorUsedError;
 
   /// The Featurebase URL for the article.
+  @JsonKey(name: 'featurebaseUrl', required: true)
   String get featurebaseUrl => throw _privateConstructorUsedError;
 
   /// The external URL for the article.
@@ -91,19 +104,19 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {String articleId,
-      String title,
-      String description,
+      {@JsonKey(name: 'articleId', defaultValue: '') String articleId,
+      @JsonKey(name: 'title', defaultValue: '') String title,
+      @JsonKey(name: 'description', required: true) String description,
       String? body,
       String? parentId,
-      String helpCenterId,
-      String organizationId,
-      String state,
-      String locale,
+      @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true) String organizationId,
+      @JsonKey(name: 'state', defaultValue: 'live') String state,
+      @JsonKey(name: 'locale', required: true) String locale,
       DateTime createdAt,
       DateTime updatedAt,
-      String slug,
-      String featurebaseUrl,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       bool isDraftDiffersFromLive,
       bool isPublished,
@@ -230,19 +243,19 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String articleId,
-      String title,
-      String description,
+      {@JsonKey(name: 'articleId', defaultValue: '') String articleId,
+      @JsonKey(name: 'title', defaultValue: '') String title,
+      @JsonKey(name: 'description', required: true) String description,
       String? body,
       String? parentId,
-      String helpCenterId,
-      String organizationId,
-      String state,
-      String locale,
+      @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true) String organizationId,
+      @JsonKey(name: 'state', defaultValue: 'live') String state,
+      @JsonKey(name: 'locale', required: true) String locale,
       DateTime createdAt,
       DateTime updatedAt,
-      String slug,
-      String featurebaseUrl,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       bool isDraftDiffersFromLive,
       bool isPublished,
@@ -363,18 +376,20 @@ class __$$ArticleImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArticleImpl implements _Article {
   const _$ArticleImpl(
-      {required this.articleId,
-      required this.title,
-      required this.description,
+      {@JsonKey(name: 'articleId', defaultValue: '') required this.articleId,
+      @JsonKey(name: 'title', defaultValue: '') required this.title,
+      @JsonKey(name: 'description', required: true) required this.description,
       required this.body,
       this.parentId,
-      required this.helpCenterId,
+      @JsonKey(name: 'helpCenterId', required: true) required this.helpCenterId,
+      @JsonKey(name: 'organizationId', required: true)
       required this.organizationId,
-      required this.state,
-      required this.locale,
+      @JsonKey(name: 'state', defaultValue: 'live') required this.state,
+      @JsonKey(name: 'locale', required: true) required this.locale,
       required this.createdAt,
       required this.updatedAt,
-      required this.slug,
+      @JsonKey(name: 'slug', required: true) required this.slug,
+      @JsonKey(name: 'featurebaseUrl', required: true)
       required this.featurebaseUrl,
       required this.externalUrl,
       required this.isDraftDiffersFromLive,
@@ -388,15 +403,22 @@ class _$ArticleImpl implements _Article {
       _$$ArticleImplFromJson(json);
 
   /// The article's unique ID.
+  ///
+  /// TODO: Check why sometimes articleId can be null
   @override
+  @JsonKey(name: 'articleId', defaultValue: '')
   final String articleId;
 
   /// The title of the article.
+  ///
+  /// TODO: Check why sometimes title can be null
   @override
+  @JsonKey(name: 'title', defaultValue: '')
   final String title;
 
   /// A brief description of the article.
   @override
+  @JsonKey(name: 'description', required: true)
   final String description;
 
   /// The HTML content of the article.
@@ -411,18 +433,22 @@ class _$ArticleImpl implements _Article {
 
   /// The ID of the help center this article belongs to.
   @override
+  @JsonKey(name: 'helpCenterId', required: true)
   final String helpCenterId;
 
   /// The ID of the organization that the article belongs to.
   @override
+  @JsonKey(name: 'organizationId', required: true)
   final String organizationId;
 
   /// The state of the article, either "live" or "draft".
   @override
+  @JsonKey(name: 'state', defaultValue: 'live')
   final String state;
 
   /// The locale of the article.
   @override
+  @JsonKey(name: 'locale', required: true)
   final String locale;
 //TODO: add translations
   /// The date when the article was created.
@@ -435,10 +461,12 @@ class _$ArticleImpl implements _Article {
 //TODO: add author
   /// The URL-friendly slug of the article.
   @override
+  @JsonKey(name: 'slug', required: true)
   final String slug;
 
   /// The Featurebase URL for the article.
   @override
+  @JsonKey(name: 'featurebaseUrl', required: true)
   final String featurebaseUrl;
 
   /// The external URL for the article.
@@ -561,18 +589,23 @@ class _$ArticleImpl implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {required final String articleId,
-      required final String title,
+      {@JsonKey(name: 'articleId', defaultValue: '')
+      required final String articleId,
+      @JsonKey(name: 'title', defaultValue: '') required final String title,
+      @JsonKey(name: 'description', required: true)
       required final String description,
       required final String? body,
       final String? parentId,
+      @JsonKey(name: 'helpCenterId', required: true)
       required final String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true)
       required final String organizationId,
-      required final String state,
-      required final String locale,
+      @JsonKey(name: 'state', defaultValue: 'live') required final String state,
+      @JsonKey(name: 'locale', required: true) required final String locale,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      required final String slug,
+      @JsonKey(name: 'slug', required: true) required final String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true)
       required final String featurebaseUrl,
       required final String? externalUrl,
       required final bool isDraftDiffersFromLive,
@@ -583,15 +616,22 @@ abstract class _Article implements Article {
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   /// The article's unique ID.
+  ///
+  /// TODO: Check why sometimes articleId can be null
   @override
+  @JsonKey(name: 'articleId', defaultValue: '')
   String get articleId;
 
   /// The title of the article.
+  ///
+  /// TODO: Check why sometimes title can be null
   @override
+  @JsonKey(name: 'title', defaultValue: '')
   String get title;
 
   /// A brief description of the article.
   @override
+  @JsonKey(name: 'description', required: true)
   String get description;
 
   /// The HTML content of the article.
@@ -606,18 +646,22 @@ abstract class _Article implements Article {
 
   /// The ID of the help center this article belongs to.
   @override
+  @JsonKey(name: 'helpCenterId', required: true)
   String get helpCenterId;
 
   /// The ID of the organization that the article belongs to.
   @override
+  @JsonKey(name: 'organizationId', required: true)
   String get organizationId;
 
   /// The state of the article, either "live" or "draft".
   @override
+  @JsonKey(name: 'state', defaultValue: 'live')
   String get state;
 
   /// The locale of the article.
   @override
+  @JsonKey(name: 'locale', required: true)
   String get locale; //TODO: add translations
   /// The date when the article was created.
   @override
@@ -628,10 +672,12 @@ abstract class _Article implements Article {
   DateTime get updatedAt; //TODO: add author
   /// The URL-friendly slug of the article.
   @override
+  @JsonKey(name: 'slug', required: true)
   String get slug;
 
   /// The Featurebase URL for the article.
   @override
+  @JsonKey(name: 'featurebaseUrl', required: true)
   String get featurebaseUrl;
 
   /// The external URL for the article.

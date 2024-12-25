@@ -4,13 +4,17 @@ part of featurebase_dart.models;
 class Article with _$Article {
   const factory Article({
     /// The article's unique ID.
-    required String articleId,
+    ///
+    /// TODO: Check why sometimes articleId can be null
+    @JsonKey(name: 'articleId', defaultValue: '') required String articleId,
 
     /// The title of the article.
-    required String title,
+    ///
+    /// TODO: Check why sometimes title can be null
+    @JsonKey(name: 'title', defaultValue: '') required String title,
 
     /// A brief description of the article.
-    required String description,
+    @JsonKey(name: 'description', required: true) required String description,
 
     /// The HTML content of the article.
     ///
@@ -21,16 +25,17 @@ class Article with _$Article {
     String? parentId,
 
     /// The ID of the help center this article belongs to.
-    required String helpCenterId,
+    @JsonKey(name: 'helpCenterId', required: true) required String helpCenterId,
 
     /// The ID of the organization that the article belongs to.
+    @JsonKey(name: 'organizationId', required: true)
     required String organizationId,
 
     /// The state of the article, either "live" or "draft".
-    required String state,
+    @JsonKey(name: 'state', defaultValue: 'live') required String state,
 
     /// The locale of the article.
-    required String locale,
+    @JsonKey(name: 'locale', required: true) required String locale,
 
     //TODO: add translations
 
@@ -43,9 +48,10 @@ class Article with _$Article {
     //TODO: add author
 
     /// The URL-friendly slug of the article.
-    required String slug,
+    @JsonKey(name: 'slug', required: true) required String slug,
 
     /// The Featurebase URL for the article.
+    @JsonKey(name: 'featurebaseUrl', required: true)
     required String featurebaseUrl,
 
     /// The external URL for the article.
