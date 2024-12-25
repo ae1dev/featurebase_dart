@@ -6,7 +6,7 @@ class HelpCenterEnd extends EndpointBase {
 
   HelpCenterEnd(super.api);
 
-  /// Get stats about the platform
+  /// Get the help center
   Future<HelpCenter> get(
       {bool withStructure = true, String locale = 'en'}) async {
     final Map<String, Object?> map = (await dio.get(_path, queryParameters: {
@@ -16,5 +16,17 @@ class HelpCenterEnd extends EndpointBase {
         .data;
 
     return HelpCenter.fromJson(map);
+  }
+
+  /// Get an article by its id
+  Future<Article> getArticle(String id, {String locale = 'en'}) async {
+    final Map<String, Object?> map =
+        (await dio.get('$_path/articles', queryParameters: {
+      "articleId": id,
+      "locale": locale,
+    }))
+            .data;
+    var articles = map['results'] as Iterable<dynamic>;
+    return (articles.map((m) => Article.fromJson(m)).toList()).first;
   }
 }
