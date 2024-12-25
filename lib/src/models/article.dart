@@ -19,7 +19,7 @@ class Article with _$Article {
     /// The HTML content of the article.
     ///
     /// Not returned when using withStructure
-    required String? body,
+    String? body,
 
     /// The ID of the parent collection, if any.
     String? parentId,
@@ -58,16 +58,17 @@ class Article with _$Article {
     required String? externalUrl,
 
     /// Indicates whether the draft version differs from the live published version.
+    @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
     required bool isDraftDiffersFromLive,
 
     /// Indicates whether the article is published.
-    required bool isPublished,
+    @JsonKey(name: 'isPublished', defaultValue: true) required bool isPublished,
 
     /// An array of available locales for the article.
-    required List<String> availableLocales,
+    // required List<String> availableLocales,
 
     /// An array of locales in which the article is published.
-    required List<String> publishedLocales,
+    // required List<String> publishedLocales,
   }) = _Article;
 
   factory Article.fromJson(Map<String, Object?> json) =>

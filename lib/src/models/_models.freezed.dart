@@ -78,16 +78,12 @@ mixin _$Article {
   String? get externalUrl => throw _privateConstructorUsedError;
 
   /// Indicates whether the draft version differs from the live published version.
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
   bool get isDraftDiffersFromLive => throw _privateConstructorUsedError;
 
   /// Indicates whether the article is published.
+  @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished => throw _privateConstructorUsedError;
-
-  /// An array of available locales for the article.
-  List<String> get availableLocales => throw _privateConstructorUsedError;
-
-  /// An array of locales in which the article is published.
-  List<String> get publishedLocales => throw _privateConstructorUsedError;
 
   /// Serializes this Article to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -118,10 +114,9 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
-      bool isPublished,
-      List<String> availableLocales,
-      List<String> publishedLocales});
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
 }
 
 /// @nodoc
@@ -155,8 +150,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
-    Object? availableLocales = null,
-    Object? publishedLocales = null,
   }) {
     return _then(_value.copyWith(
       articleId: null == articleId
@@ -223,14 +216,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
-      availableLocales: null == availableLocales
-          ? _value.availableLocales
-          : availableLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      publishedLocales: null == publishedLocales
-          ? _value.publishedLocales
-          : publishedLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ) as $Val);
   }
 }
@@ -257,10 +242,9 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
-      bool isPublished,
-      List<String> availableLocales,
-      List<String> publishedLocales});
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
 }
 
 /// @nodoc
@@ -292,8 +276,6 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
-    Object? availableLocales = null,
-    Object? publishedLocales = null,
   }) {
     return _then(_$ArticleImpl(
       articleId: null == articleId
@@ -360,14 +342,6 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
-      availableLocales: null == availableLocales
-          ? _value._availableLocales
-          : availableLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      publishedLocales: null == publishedLocales
-          ? _value._publishedLocales
-          : publishedLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -379,7 +353,7 @@ class _$ArticleImpl implements _Article {
       {@JsonKey(name: 'articleId', defaultValue: '') required this.articleId,
       @JsonKey(name: 'title', defaultValue: '') required this.title,
       @JsonKey(name: 'description', required: true) required this.description,
-      required this.body,
+      this.body,
       this.parentId,
       @JsonKey(name: 'helpCenterId', required: true) required this.helpCenterId,
       @JsonKey(name: 'organizationId', required: true)
@@ -392,12 +366,10 @@ class _$ArticleImpl implements _Article {
       @JsonKey(name: 'featurebaseUrl', required: true)
       required this.featurebaseUrl,
       required this.externalUrl,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required this.isDraftDiffersFromLive,
-      required this.isPublished,
-      required final List<String> availableLocales,
-      required final List<String> publishedLocales})
-      : _availableLocales = availableLocales,
-        _publishedLocales = publishedLocales;
+      @JsonKey(name: 'isPublished', defaultValue: true)
+      required this.isPublished});
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
@@ -475,39 +447,17 @@ class _$ArticleImpl implements _Article {
 
   /// Indicates whether the draft version differs from the live published version.
   @override
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
   final bool isDraftDiffersFromLive;
 
   /// Indicates whether the article is published.
   @override
+  @JsonKey(name: 'isPublished', defaultValue: true)
   final bool isPublished;
-
-  /// An array of available locales for the article.
-  final List<String> _availableLocales;
-
-  /// An array of available locales for the article.
-  @override
-  List<String> get availableLocales {
-    if (_availableLocales is EqualUnmodifiableListView)
-      return _availableLocales;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_availableLocales);
-  }
-
-  /// An array of locales in which the article is published.
-  final List<String> _publishedLocales;
-
-  /// An array of locales in which the article is published.
-  @override
-  List<String> get publishedLocales {
-    if (_publishedLocales is EqualUnmodifiableListView)
-      return _publishedLocales;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_publishedLocales);
-  }
 
   @override
   String toString() {
-    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, availableLocales: $availableLocales, publishedLocales: $publishedLocales)';
+    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished)';
   }
 
   @override
@@ -541,11 +491,7 @@ class _$ArticleImpl implements _Article {
             (identical(other.isDraftDiffersFromLive, isDraftDiffersFromLive) ||
                 other.isDraftDiffersFromLive == isDraftDiffersFromLive) &&
             (identical(other.isPublished, isPublished) ||
-                other.isPublished == isPublished) &&
-            const DeepCollectionEquality()
-                .equals(other._availableLocales, _availableLocales) &&
-            const DeepCollectionEquality()
-                .equals(other._publishedLocales, _publishedLocales));
+                other.isPublished == isPublished));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -567,9 +513,7 @@ class _$ArticleImpl implements _Article {
       featurebaseUrl,
       externalUrl,
       isDraftDiffersFromLive,
-      isPublished,
-      const DeepCollectionEquality().hash(_availableLocales),
-      const DeepCollectionEquality().hash(_publishedLocales));
+      isPublished);
 
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.
@@ -594,7 +538,7 @@ abstract class _Article implements Article {
       @JsonKey(name: 'title', defaultValue: '') required final String title,
       @JsonKey(name: 'description', required: true)
       required final String description,
-      required final String? body,
+      final String? body,
       final String? parentId,
       @JsonKey(name: 'helpCenterId', required: true)
       required final String helpCenterId,
@@ -608,10 +552,10 @@ abstract class _Article implements Article {
       @JsonKey(name: 'featurebaseUrl', required: true)
       required final String featurebaseUrl,
       required final String? externalUrl,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required final bool isDraftDiffersFromLive,
-      required final bool isPublished,
-      required final List<String> availableLocales,
-      required final List<String> publishedLocales}) = _$ArticleImpl;
+      @JsonKey(name: 'isPublished', defaultValue: true)
+      required final bool isPublished}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
@@ -686,19 +630,13 @@ abstract class _Article implements Article {
 
   /// Indicates whether the draft version differs from the live published version.
   @override
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
   bool get isDraftDiffersFromLive;
 
   /// Indicates whether the article is published.
   @override
+  @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished;
-
-  /// An array of available locales for the article.
-  @override
-  List<String> get availableLocales;
-
-  /// An array of locales in which the article is published.
-  @override
-  List<String> get publishedLocales;
 
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.

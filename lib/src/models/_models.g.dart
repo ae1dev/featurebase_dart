@@ -33,14 +33,8 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     slug: json['slug'] as String,
     featurebaseUrl: json['featurebaseUrl'] as String,
     externalUrl: json['externalUrl'] as String?,
-    isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool,
-    isPublished: json['isPublished'] as bool,
-    availableLocales: (json['availableLocales'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList(),
-    publishedLocales: (json['publishedLocales'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList(),
+    isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool? ?? false,
+    isPublished: json['isPublished'] as bool? ?? true,
   );
 }
 
@@ -62,8 +56,6 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'externalUrl': instance.externalUrl,
       'isDraftDiffersFromLive': instance.isDraftDiffersFromLive,
       'isPublished': instance.isPublished,
-      'availableLocales': instance.availableLocales,
-      'publishedLocales': instance.publishedLocales,
     };
 
 _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) =>
