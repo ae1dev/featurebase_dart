@@ -55,7 +55,7 @@ class Article with _$Article {
     required String featurebaseUrl,
 
     /// The external URL for the article.
-    required String? externalUrl,
+    String? externalUrl,
 
     /// Indicates whether the draft version differs from the live published version.
     @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)

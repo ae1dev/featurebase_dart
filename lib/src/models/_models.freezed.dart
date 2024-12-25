@@ -365,7 +365,7 @@ class _$ArticleImpl implements _Article {
       @JsonKey(name: 'slug', required: true) required this.slug,
       @JsonKey(name: 'featurebaseUrl', required: true)
       required this.featurebaseUrl,
-      required this.externalUrl,
+      this.externalUrl,
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required this.isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
@@ -551,7 +551,7 @@ abstract class _Article implements Article {
       @JsonKey(name: 'slug', required: true) required final String slug,
       @JsonKey(name: 'featurebaseUrl', required: true)
       required final String featurebaseUrl,
-      required final String? externalUrl,
+      final String? externalUrl,
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required final bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
