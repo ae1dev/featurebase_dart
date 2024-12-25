@@ -73,6 +73,9 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) =>
       availableLocales: (json['availableLocales'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      structure: (json['structure'] as List<dynamic>?)
+          ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
@@ -92,6 +95,7 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'externalUrl': instance.externalUrl,
       'locale': instance.locale,
       'availableLocales': instance.availableLocales,
+      'structure': instance.structure,
     };
 
 _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
@@ -112,6 +116,9 @@ _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
+      structure: (json['structure'] as List<dynamic>?)
+          ?.map((e) => Collection.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
@@ -128,6 +135,7 @@ Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
       'availableLocales': instance.availableLocales,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
+      'structure': instance.structure,
     };
 
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>

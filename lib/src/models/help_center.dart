@@ -38,6 +38,9 @@ class HelpCenter with _$HelpCenter {
 
     /// The date when the help center was last updated.
     required DateTime updatedAt,
+
+    /// List of collections (only returned when using the withStructure option)
+    List<Collection>? structure,
   }) = _HelpCenter;
 
   factory HelpCenter.fromJson(Map<String, Object?> json) =>

@@ -707,6 +707,9 @@ mixin _$Collection {
   /// An array of available locales for the collection.
   List<String> get availableLocales => throw _privateConstructorUsedError;
 
+  /// List of collections (only returned when using the withStructure option)
+  List<Article>? get structure => throw _privateConstructorUsedError;
+
   /// Serializes this Collection to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -738,7 +741,8 @@ abstract class $CollectionCopyWith<$Res> {
       String featurebaseUrl,
       String? externalUrl,
       String locale,
-      List<String> availableLocales});
+      List<String> availableLocales,
+      List<Article>? structure});
 }
 
 /// @nodoc
@@ -771,6 +775,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? externalUrl = freezed,
     Object? locale = null,
     Object? availableLocales = null,
+    Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
       collectionId: null == collectionId
@@ -833,6 +838,10 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      structure: freezed == structure
+          ? _value.structure
+          : structure // ignore: cast_nullable_to_non_nullable
+              as List<Article>?,
     ) as $Val);
   }
 }
@@ -860,7 +869,8 @@ abstract class _$$CollectionImplCopyWith<$Res>
       String featurebaseUrl,
       String? externalUrl,
       String locale,
-      List<String> availableLocales});
+      List<String> availableLocales,
+      List<Article>? structure});
 }
 
 /// @nodoc
@@ -891,6 +901,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? externalUrl = freezed,
     Object? locale = null,
     Object? availableLocales = null,
+    Object? structure = freezed,
   }) {
     return _then(_$CollectionImpl(
       collectionId: null == collectionId
@@ -953,6 +964,10 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value._availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      structure: freezed == structure
+          ? _value._structure
+          : structure // ignore: cast_nullable_to_non_nullable
+              as List<Article>?,
     ));
   }
 }
@@ -975,8 +990,10 @@ class _$CollectionImpl implements _Collection {
       required this.featurebaseUrl,
       required this.externalUrl,
       required this.locale,
-      required final List<String> availableLocales})
-      : _availableLocales = availableLocales;
+      required final List<String> availableLocales,
+      final List<Article>? structure})
+      : _availableLocales = availableLocales,
+        _structure = structure;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CollectionImplFromJson(json);
@@ -1049,9 +1066,22 @@ class _$CollectionImpl implements _Collection {
     return EqualUnmodifiableListView(_availableLocales);
   }
 
+  /// List of collections (only returned when using the withStructure option)
+  final List<Article>? _structure;
+
+  /// List of collections (only returned when using the withStructure option)
+  @override
+  List<Article>? get structure {
+    final value = _structure;
+    if (value == null) return null;
+    if (_structure is EqualUnmodifiableListView) return _structure;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, availableLocales: $availableLocales)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, availableLocales: $availableLocales, structure: $structure)';
   }
 
   @override
@@ -1082,7 +1112,9 @@ class _$CollectionImpl implements _Collection {
                 other.externalUrl == externalUrl) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             const DeepCollectionEquality()
-                .equals(other._availableLocales, _availableLocales));
+                .equals(other._availableLocales, _availableLocales) &&
+            const DeepCollectionEquality()
+                .equals(other._structure, _structure));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1103,7 +1135,8 @@ class _$CollectionImpl implements _Collection {
       featurebaseUrl,
       externalUrl,
       locale,
-      const DeepCollectionEquality().hash(_availableLocales));
+      const DeepCollectionEquality().hash(_availableLocales),
+      const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of Collection
   /// with the given fields replaced by the non-null parameter values.
@@ -1137,7 +1170,8 @@ abstract class _Collection implements Collection {
       required final String featurebaseUrl,
       required final String? externalUrl,
       required final String locale,
-      required final List<String> availableLocales}) = _$CollectionImpl;
+      required final List<String> availableLocales,
+      final List<Article>? structure}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$CollectionImpl.fromJson;
@@ -1202,6 +1236,10 @@ abstract class _Collection implements Collection {
   @override
   List<String> get availableLocales;
 
+  /// List of collections (only returned when using the withStructure option)
+  @override
+  List<Article>? get structure;
+
   /// Create a copy of Collection
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -1252,6 +1290,9 @@ mixin _$HelpCenter {
   /// The date when the help center was last updated.
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
+  /// List of collections (only returned when using the withStructure option)
+  List<Collection>? get structure => throw _privateConstructorUsedError;
+
   /// Serializes this HelpCenter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -1280,7 +1321,8 @@ abstract class $HelpCenterCopyWith<$Res> {
       String locale,
       List<String> availableLocales,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      List<Collection>? structure});
 }
 
 /// @nodoc
@@ -1310,6 +1352,7 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
       helpCenterId: null == helpCenterId
@@ -1360,6 +1403,10 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      structure: freezed == structure
+          ? _value.structure
+          : structure // ignore: cast_nullable_to_non_nullable
+              as List<Collection>?,
     ) as $Val);
   }
 }
@@ -1384,7 +1431,8 @@ abstract class _$$HelpCenterImplCopyWith<$Res>
       String locale,
       List<String> availableLocales,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      List<Collection>? structure});
 }
 
 /// @nodoc
@@ -1412,6 +1460,7 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? structure = freezed,
   }) {
     return _then(_$HelpCenterImpl(
       helpCenterId: null == helpCenterId
@@ -1462,6 +1511,10 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      structure: freezed == structure
+          ? _value._structure
+          : structure // ignore: cast_nullable_to_non_nullable
+              as List<Collection>?,
     ));
   }
 }
@@ -1481,9 +1534,11 @@ class _$HelpCenterImpl implements _HelpCenter {
       required this.locale,
       required final List<String> availableLocales,
       required this.createdAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      final List<Collection>? structure})
       : _navItems = navItems,
-        _availableLocales = availableLocales;
+        _availableLocales = availableLocales,
+        _structure = structure;
 
   factory _$HelpCenterImpl.fromJson(Map<String, dynamic> json) =>
       _$$HelpCenterImplFromJson(json);
@@ -1551,9 +1606,22 @@ class _$HelpCenterImpl implements _HelpCenter {
   @override
   final DateTime updatedAt;
 
+  /// List of collections (only returned when using the withStructure option)
+  final List<Collection>? _structure;
+
+  /// List of collections (only returned when using the withStructure option)
+  @override
+  List<Collection>? get structure {
+    final value = _structure;
+    if (value == null) return null;
+    if (_structure is EqualUnmodifiableListView) return _structure;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, structure: $structure)';
   }
 
   @override
@@ -1581,7 +1649,9 @@ class _$HelpCenterImpl implements _HelpCenter {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            const DeepCollectionEquality()
+                .equals(other._structure, _structure));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1599,7 +1669,8 @@ class _$HelpCenterImpl implements _HelpCenter {
       locale,
       const DeepCollectionEquality().hash(_availableLocales),
       createdAt,
-      updatedAt);
+      updatedAt,
+      const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of HelpCenter
   /// with the given fields replaced by the non-null parameter values.
@@ -1630,7 +1701,8 @@ abstract class _HelpCenter implements HelpCenter {
       required final String locale,
       required final List<String> availableLocales,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$HelpCenterImpl;
+      required final DateTime updatedAt,
+      final List<Collection>? structure}) = _$HelpCenterImpl;
 
   factory _HelpCenter.fromJson(Map<String, dynamic> json) =
       _$HelpCenterImpl.fromJson;
@@ -1682,6 +1754,10 @@ abstract class _HelpCenter implements HelpCenter {
   /// The date when the help center was last updated.
   @override
   DateTime get updatedAt;
+
+  /// List of collections (only returned when using the withStructure option)
+  @override
+  List<Collection>? get structure;
 
   /// Create a copy of HelpCenter
   /// with the given fields replaced by the non-null parameter values.
