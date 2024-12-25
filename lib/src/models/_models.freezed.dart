@@ -707,8 +707,8 @@ mixin _$Collection {
 
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
-  /// List of articles (only returned when using the withStructure option)
-  List<Article>? get structure => throw _privateConstructorUsedError;
+  /// List of articles and collections (only returned when using the withStructure option)
+  List<CollectionContent>? get structure => throw _privateConstructorUsedError;
 
   /// Serializes this Collection to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -741,7 +741,7 @@ abstract class $CollectionCopyWith<$Res> {
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
-      List<Article>? structure});
+      List<CollectionContent>? structure});
 }
 
 /// @nodoc
@@ -835,7 +835,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
       structure: freezed == structure
           ? _value.structure
           : structure // ignore: cast_nullable_to_non_nullable
-              as List<Article>?,
+              as List<CollectionContent>?,
     ) as $Val);
   }
 }
@@ -863,7 +863,7 @@ abstract class _$$CollectionImplCopyWith<$Res>
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
-      List<Article>? structure});
+      List<CollectionContent>? structure});
 }
 
 /// @nodoc
@@ -955,7 +955,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
       structure: freezed == structure
           ? _value._structure
           : structure // ignore: cast_nullable_to_non_nullable
-              as List<Article>?,
+              as List<CollectionContent>?,
     ));
   }
 }
@@ -982,7 +982,7 @@ class _$CollectionImpl implements _Collection {
       required this.featurebaseUrl,
       required this.externalUrl,
       @JsonKey(name: 'locale', required: true) required this.locale,
-      final List<Article>? structure})
+      final List<CollectionContent>? structure})
       : _structure = structure;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
@@ -1057,14 +1057,14 @@ class _$CollectionImpl implements _Collection {
 
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
-  /// List of articles (only returned when using the withStructure option)
-  final List<Article>? _structure;
+  /// List of articles and collections (only returned when using the withStructure option)
+  final List<CollectionContent>? _structure;
 
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
-  /// List of articles (only returned when using the withStructure option)
+  /// List of articles and collections (only returned when using the withStructure option)
   @override
-  List<Article>? get structure {
+  List<CollectionContent>? get structure {
     final value = _structure;
     if (value == null) return null;
     if (_structure is EqualUnmodifiableListView) return _structure;
@@ -1167,7 +1167,7 @@ abstract class _Collection implements Collection {
       required final String featurebaseUrl,
       required final String? externalUrl,
       @JsonKey(name: 'locale', required: true) required final String locale,
-      final List<Article>? structure}) = _$CollectionImpl;
+      final List<CollectionContent>? structure}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$CollectionImpl.fromJson;
@@ -1241,9 +1241,9 @@ abstract class _Collection implements Collection {
 
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
-  /// List of articles (only returned when using the withStructure option)
+  /// List of articles and collections (only returned when using the withStructure option)
   @override
-  List<Article>? get structure;
+  List<CollectionContent>? get structure;
 
   /// Create a copy of Collection
   /// with the given fields replaced by the non-null parameter values.
@@ -1251,6 +1251,403 @@ abstract class _Collection implements Collection {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CollectionImplCopyWith<_$CollectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$CollectionContent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Article article) article,
+    required TResult Function(Collection collection) collection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Article article)? article,
+    TResult? Function(Collection collection)? collection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Article article)? article,
+    TResult Function(Collection collection)? collection,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CollectionContentArticle value) article,
+    required TResult Function(_CollectionContentCollection value) collection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CollectionContentArticle value)? article,
+    TResult? Function(_CollectionContentCollection value)? collection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CollectionContentArticle value)? article,
+    TResult Function(_CollectionContentCollection value)? collection,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CollectionContentCopyWith<$Res> {
+  factory $CollectionContentCopyWith(
+          CollectionContent value, $Res Function(CollectionContent) then) =
+      _$CollectionContentCopyWithImpl<$Res, CollectionContent>;
+}
+
+/// @nodoc
+class _$CollectionContentCopyWithImpl<$Res, $Val extends CollectionContent>
+    implements $CollectionContentCopyWith<$Res> {
+  _$CollectionContentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$CollectionContentArticleImplCopyWith<$Res> {
+  factory _$$CollectionContentArticleImplCopyWith(
+          _$CollectionContentArticleImpl value,
+          $Res Function(_$CollectionContentArticleImpl) then) =
+      __$$CollectionContentArticleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Article article});
+
+  $ArticleCopyWith<$Res> get article;
+}
+
+/// @nodoc
+class __$$CollectionContentArticleImplCopyWithImpl<$Res>
+    extends _$CollectionContentCopyWithImpl<$Res,
+        _$CollectionContentArticleImpl>
+    implements _$$CollectionContentArticleImplCopyWith<$Res> {
+  __$$CollectionContentArticleImplCopyWithImpl(
+      _$CollectionContentArticleImpl _value,
+      $Res Function(_$CollectionContentArticleImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? article = null,
+  }) {
+    return _then(_$CollectionContentArticleImpl(
+      null == article
+          ? _value.article
+          : article // ignore: cast_nullable_to_non_nullable
+              as Article,
+    ));
+  }
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ArticleCopyWith<$Res> get article {
+    return $ArticleCopyWith<$Res>(_value.article, (value) {
+      return _then(_value.copyWith(article: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonKey(includeFromJson: false)
+class _$CollectionContentArticleImpl implements _CollectionContentArticle {
+  const _$CollectionContentArticleImpl(this.article);
+
+  @override
+  final Article article;
+
+  @override
+  String toString() {
+    return 'CollectionContent.article(article: $article)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CollectionContentArticleImpl &&
+            (identical(other.article, article) || other.article == article));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, article);
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CollectionContentArticleImplCopyWith<_$CollectionContentArticleImpl>
+      get copyWith => __$$CollectionContentArticleImplCopyWithImpl<
+          _$CollectionContentArticleImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Article article) article,
+    required TResult Function(Collection collection) collection,
+  }) {
+    return article(this.article);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Article article)? article,
+    TResult? Function(Collection collection)? collection,
+  }) {
+    return article?.call(this.article);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Article article)? article,
+    TResult Function(Collection collection)? collection,
+    required TResult orElse(),
+  }) {
+    if (article != null) {
+      return article(this.article);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CollectionContentArticle value) article,
+    required TResult Function(_CollectionContentCollection value) collection,
+  }) {
+    return article(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CollectionContentArticle value)? article,
+    TResult? Function(_CollectionContentCollection value)? collection,
+  }) {
+    return article?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CollectionContentArticle value)? article,
+    TResult Function(_CollectionContentCollection value)? collection,
+    required TResult orElse(),
+  }) {
+    if (article != null) {
+      return article(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return when(
+      article: (article) => article.toJson(),
+      collection: (collection) => collection.toJson(),
+    );
+  }
+}
+
+abstract class _CollectionContentArticle implements CollectionContent {
+  const factory _CollectionContentArticle(final Article article) =
+      _$CollectionContentArticleImpl;
+
+  Article get article;
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CollectionContentArticleImplCopyWith<_$CollectionContentArticleImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CollectionContentCollectionImplCopyWith<$Res> {
+  factory _$$CollectionContentCollectionImplCopyWith(
+          _$CollectionContentCollectionImpl value,
+          $Res Function(_$CollectionContentCollectionImpl) then) =
+      __$$CollectionContentCollectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Collection collection});
+
+  $CollectionCopyWith<$Res> get collection;
+}
+
+/// @nodoc
+class __$$CollectionContentCollectionImplCopyWithImpl<$Res>
+    extends _$CollectionContentCopyWithImpl<$Res,
+        _$CollectionContentCollectionImpl>
+    implements _$$CollectionContentCollectionImplCopyWith<$Res> {
+  __$$CollectionContentCollectionImplCopyWithImpl(
+      _$CollectionContentCollectionImpl _value,
+      $Res Function(_$CollectionContentCollectionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? collection = null,
+  }) {
+    return _then(_$CollectionContentCollectionImpl(
+      null == collection
+          ? _value.collection
+          : collection // ignore: cast_nullable_to_non_nullable
+              as Collection,
+    ));
+  }
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CollectionCopyWith<$Res> get collection {
+    return $CollectionCopyWith<$Res>(_value.collection, (value) {
+      return _then(_value.copyWith(collection: value));
+    });
+  }
+}
+
+/// @nodoc
+
+@JsonKey(includeFromJson: false)
+class _$CollectionContentCollectionImpl
+    implements _CollectionContentCollection {
+  const _$CollectionContentCollectionImpl(this.collection);
+
+  @override
+  final Collection collection;
+
+  @override
+  String toString() {
+    return 'CollectionContent.collection(collection: $collection)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CollectionContentCollectionImpl &&
+            (identical(other.collection, collection) ||
+                other.collection == collection));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, collection);
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CollectionContentCollectionImplCopyWith<_$CollectionContentCollectionImpl>
+      get copyWith => __$$CollectionContentCollectionImplCopyWithImpl<
+          _$CollectionContentCollectionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Article article) article,
+    required TResult Function(Collection collection) collection,
+  }) {
+    return collection(this.collection);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Article article)? article,
+    TResult? Function(Collection collection)? collection,
+  }) {
+    return collection?.call(this.collection);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Article article)? article,
+    TResult Function(Collection collection)? collection,
+    required TResult orElse(),
+  }) {
+    if (collection != null) {
+      return collection(this.collection);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CollectionContentArticle value) article,
+    required TResult Function(_CollectionContentCollection value) collection,
+  }) {
+    return collection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CollectionContentArticle value)? article,
+    TResult? Function(_CollectionContentCollection value)? collection,
+  }) {
+    return collection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CollectionContentArticle value)? article,
+    TResult Function(_CollectionContentCollection value)? collection,
+    required TResult orElse(),
+  }) {
+    if (collection != null) {
+      return collection(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return when(
+      article: (article) => article.toJson(),
+      collection: (collection) => collection.toJson(),
+    );
+  }
+}
+
+abstract class _CollectionContentCollection implements CollectionContent {
+  const factory _CollectionContentCollection(final Collection collection) =
+      _$CollectionContentCollectionImpl;
+
+  Collection get collection;
+
+  /// Create a copy of CollectionContent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CollectionContentCollectionImplCopyWith<_$CollectionContentCollectionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 HelpCenter _$HelpCenterFromJson(Map<String, dynamic> json) {

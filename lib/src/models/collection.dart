@@ -51,10 +51,36 @@ class Collection with _$Collection {
     /// An array of available locales for the collection.
     // required List<String> availableLocales,
 
-    /// List of articles (only returned when using the withStructure option)
-    List<Article>? structure,
+    /// List of articles and collections (only returned when using the withStructure option)
+    List<CollectionContent>? structure,
   }) = _Collection;
 
   factory Collection.fromJson(Map<String, Object?> json) =>
       _$CollectionFromJson(json);
+}
+
+@freezed
+class CollectionContent with _$CollectionContent {
+  @JsonKey(includeFromJson: false)
+  const factory CollectionContent.article(Article article) =
+      _CollectionContentArticle;
+  @JsonKey(includeFromJson: false)
+  const factory CollectionContent.collection(Collection collection) =
+      _CollectionContentCollection;
+
+  factory CollectionContent.fromJson(Map<String, dynamic> json) {
+    if (json['type'] == 'article') {
+      return CollectionContent.article(Article.fromJson(json));
+    } else if (json['type'] == 'collection') {
+      return CollectionContent.collection(Collection.fromJson(json));
+    }
+    throw Exception('Unknown type for CollectionContent: ${json['type']}');
+  }
+
+  Map<String, dynamic> toJson() {
+    return when(
+      article: (article) => article.toJson(),
+      collection: (collection) => collection.toJson(),
+    );
+  }
 }

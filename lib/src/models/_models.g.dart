@@ -90,7 +90,7 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     externalUrl: json['externalUrl'] as String?,
     locale: json['locale'] as String,
     structure: (json['structure'] as List<dynamic>?)
-        ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => CollectionContent.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
