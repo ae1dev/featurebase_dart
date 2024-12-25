@@ -13,7 +13,9 @@ class Article with _$Article {
     required String description,
 
     /// The HTML content of the article.
-    required String body,
+    ///
+    /// Not returned when using withStructure
+    required String? body,
 
     /// The ID of the parent collection, if any.
     String? parentId,

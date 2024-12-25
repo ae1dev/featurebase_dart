@@ -11,7 +11,7 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
       articleId: json['articleId'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
-      body: json['body'] as String,
+      body: json['body'] as String?,
       parentId: json['parentId'] as String?,
       helpCenterId: json['helpCenterId'] as String,
       organizationId: json['organizationId'] as String,

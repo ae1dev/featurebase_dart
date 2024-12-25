@@ -30,7 +30,9 @@ mixin _$Article {
   String get description => throw _privateConstructorUsedError;
 
   /// The HTML content of the article.
-  String get body => throw _privateConstructorUsedError;
+  ///
+  /// Not returned when using withStructure
+  String? get body => throw _privateConstructorUsedError;
 
   /// The ID of the parent collection, if any.
   String? get parentId => throw _privateConstructorUsedError;
@@ -92,7 +94,7 @@ abstract class $ArticleCopyWith<$Res> {
       {String articleId,
       String title,
       String description,
-      String body,
+      String? body,
       String? parentId,
       String helpCenterId,
       String organizationId,
@@ -127,7 +129,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? articleId = null,
     Object? title = null,
     Object? description = null,
-    Object? body = null,
+    Object? body = freezed,
     Object? parentId = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
@@ -156,10 +158,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
@@ -231,7 +233,7 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       {String articleId,
       String title,
       String description,
-      String body,
+      String? body,
       String? parentId,
       String helpCenterId,
       String organizationId,
@@ -264,7 +266,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? articleId = null,
     Object? title = null,
     Object? description = null,
-    Object? body = null,
+    Object? body = freezed,
     Object? parentId = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
@@ -293,10 +295,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      body: null == body
+      body: freezed == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
@@ -398,8 +400,10 @@ class _$ArticleImpl implements _Article {
   final String description;
 
   /// The HTML content of the article.
+  ///
+  /// Not returned when using withStructure
   @override
-  final String body;
+  final String? body;
 
   /// The ID of the parent collection, if any.
   @override
@@ -560,7 +564,7 @@ abstract class _Article implements Article {
       {required final String articleId,
       required final String title,
       required final String description,
-      required final String body,
+      required final String? body,
       final String? parentId,
       required final String helpCenterId,
       required final String organizationId,
@@ -591,8 +595,10 @@ abstract class _Article implements Article {
   String get description;
 
   /// The HTML content of the article.
+  ///
+  /// Not returned when using withStructure
   @override
-  String get body;
+  String? get body;
 
   /// The ID of the parent collection, if any.
   @override
@@ -707,7 +713,7 @@ mixin _$Collection {
   /// An array of available locales for the collection.
   List<String> get availableLocales => throw _privateConstructorUsedError;
 
-  /// List of collections (only returned when using the withStructure option)
+  /// List of articles (only returned when using the withStructure option)
   List<Article>? get structure => throw _privateConstructorUsedError;
 
   /// Serializes this Collection to a JSON map.
@@ -1066,10 +1072,10 @@ class _$CollectionImpl implements _Collection {
     return EqualUnmodifiableListView(_availableLocales);
   }
 
-  /// List of collections (only returned when using the withStructure option)
+  /// List of articles (only returned when using the withStructure option)
   final List<Article>? _structure;
 
-  /// List of collections (only returned when using the withStructure option)
+  /// List of articles (only returned when using the withStructure option)
   @override
   List<Article>? get structure {
     final value = _structure;
@@ -1236,7 +1242,7 @@ abstract class _Collection implements Collection {
   @override
   List<String> get availableLocales;
 
-  /// List of collections (only returned when using the withStructure option)
+  /// List of articles (only returned when using the withStructure option)
   @override
   List<Article>? get structure;
 
