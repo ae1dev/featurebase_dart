@@ -653,50 +653,60 @@ Collection _$CollectionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Collection {
   /// The collection's unique ID.
+  @JsonKey(name: 'collectionId', required: true)
   String get collectionId => throw _privateConstructorUsedError;
 
   /// The name of the collection.
+  @JsonKey(name: 'name', required: true)
   String get name => throw _privateConstructorUsedError;
 
   /// A description of the collection.
+  @JsonKey(name: 'description', required: true)
   String get description => throw _privateConstructorUsedError;
 
   /// The ID of the parent collection, if the collection is nested.
   String? get parentId => throw _privateConstructorUsedError;
 
   /// The ID of the help center this collection belongs to.
+  @JsonKey(name: 'helpCenterId', required: true)
   String get helpCenterId => throw _privateConstructorUsedError;
 
   /// The ID of the organization that the collection belongs to.
+  @JsonKey(name: 'organizationId', required: true)
   String get organizationId => throw _privateConstructorUsedError;
 
   /// The default locale of the collection.
+  @JsonKey(name: 'defaultLocale', required: true)
   String get defaultLocale => throw _privateConstructorUsedError;
 
   /// The order of the collection in listings.
   int? get order => throw _privateConstructorUsedError;
 
   /// The type of the document, which is "collection".
+  @JsonKey(name: 'type', defaultValue: 'collection')
   String get type => throw _privateConstructorUsedError;
 
   /// The path to the collection within the help center hierarchy.
+  @JsonKey(name: 'path', required: true)
   String get path => throw _privateConstructorUsedError;
 
   /// The URL-friendly slug of the collection.
+  @JsonKey(name: 'slug', required: true)
   String get slug => throw _privateConstructorUsedError;
 
   /// The Featurebase URL for the collection.
+  @JsonKey(name: 'featurebaseUrl', required: true)
   String get featurebaseUrl => throw _privateConstructorUsedError;
 
   /// The custom domain URL for the collection.
   String? get externalUrl => throw _privateConstructorUsedError;
 
   /// The locale of the collection.
+  @JsonKey(name: 'locale', required: true)
   String get locale => throw _privateConstructorUsedError;
 
   /// An array of available locales for the collection.
-  List<String> get availableLocales => throw _privateConstructorUsedError;
-
+// required List<String> availableLocales,
   /// List of articles (only returned when using the withStructure option)
   List<Article>? get structure => throw _privateConstructorUsedError;
 
@@ -717,21 +727,20 @@ abstract class $CollectionCopyWith<$Res> {
       _$CollectionCopyWithImpl<$Res, Collection>;
   @useResult
   $Res call(
-      {String collectionId,
-      String name,
-      String description,
+      {@JsonKey(name: 'collectionId', required: true) String collectionId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'description', required: true) String description,
       String? parentId,
-      String helpCenterId,
-      String organizationId,
-      String defaultLocale,
+      @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true) String organizationId,
+      @JsonKey(name: 'defaultLocale', required: true) String defaultLocale,
       int? order,
-      String type,
-      String path,
-      String slug,
-      String featurebaseUrl,
+      @JsonKey(name: 'type', defaultValue: 'collection') String type,
+      @JsonKey(name: 'path', required: true) String path,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
-      String locale,
-      List<String> availableLocales,
+      @JsonKey(name: 'locale', required: true) String locale,
       List<Article>? structure});
 }
 
@@ -764,7 +773,6 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
-    Object? availableLocales = null,
     Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -824,10 +832,6 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      availableLocales: null == availableLocales
-          ? _value.availableLocales
-          : availableLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       structure: freezed == structure
           ? _value.structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -845,21 +849,20 @@ abstract class _$$CollectionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String collectionId,
-      String name,
-      String description,
+      {@JsonKey(name: 'collectionId', required: true) String collectionId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'description', required: true) String description,
       String? parentId,
-      String helpCenterId,
-      String organizationId,
-      String defaultLocale,
+      @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true) String organizationId,
+      @JsonKey(name: 'defaultLocale', required: true) String defaultLocale,
       int? order,
-      String type,
-      String path,
-      String slug,
-      String featurebaseUrl,
+      @JsonKey(name: 'type', defaultValue: 'collection') String type,
+      @JsonKey(name: 'path', required: true) String path,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
-      String locale,
-      List<String> availableLocales,
+      @JsonKey(name: 'locale', required: true) String locale,
       List<Article>? structure});
 }
 
@@ -890,7 +893,6 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
-    Object? availableLocales = null,
     Object? structure = freezed,
   }) {
     return _then(_$CollectionImpl(
@@ -950,10 +952,6 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      availableLocales: null == availableLocales
-          ? _value._availableLocales
-          : availableLocales // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       structure: freezed == structure
           ? _value._structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -966,38 +964,43 @@ class __$$CollectionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CollectionImpl implements _Collection {
   const _$CollectionImpl(
-      {required this.collectionId,
-      required this.name,
-      required this.description,
+      {@JsonKey(name: 'collectionId', required: true)
+      required this.collectionId,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'description', required: true) required this.description,
       required this.parentId,
-      required this.helpCenterId,
+      @JsonKey(name: 'helpCenterId', required: true) required this.helpCenterId,
+      @JsonKey(name: 'organizationId', required: true)
       required this.organizationId,
+      @JsonKey(name: 'defaultLocale', required: true)
       required this.defaultLocale,
       this.order,
-      required this.type,
-      required this.path,
-      required this.slug,
+      @JsonKey(name: 'type', defaultValue: 'collection') required this.type,
+      @JsonKey(name: 'path', required: true) required this.path,
+      @JsonKey(name: 'slug', required: true) required this.slug,
+      @JsonKey(name: 'featurebaseUrl', required: true)
       required this.featurebaseUrl,
       required this.externalUrl,
-      required this.locale,
-      required final List<String> availableLocales,
+      @JsonKey(name: 'locale', required: true) required this.locale,
       final List<Article>? structure})
-      : _availableLocales = availableLocales,
-        _structure = structure;
+      : _structure = structure;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CollectionImplFromJson(json);
 
   /// The collection's unique ID.
   @override
+  @JsonKey(name: 'collectionId', required: true)
   final String collectionId;
 
   /// The name of the collection.
   @override
+  @JsonKey(name: 'name', required: true)
   final String name;
 
   /// A description of the collection.
   @override
+  @JsonKey(name: 'description', required: true)
   final String description;
 
   /// The ID of the parent collection, if the collection is nested.
@@ -1006,14 +1009,17 @@ class _$CollectionImpl implements _Collection {
 
   /// The ID of the help center this collection belongs to.
   @override
+  @JsonKey(name: 'helpCenterId', required: true)
   final String helpCenterId;
 
   /// The ID of the organization that the collection belongs to.
   @override
+  @JsonKey(name: 'organizationId', required: true)
   final String organizationId;
 
   /// The default locale of the collection.
   @override
+  @JsonKey(name: 'defaultLocale', required: true)
   final String defaultLocale;
 
   /// The order of the collection in listings.
@@ -1022,18 +1028,22 @@ class _$CollectionImpl implements _Collection {
 
   /// The type of the document, which is "collection".
   @override
+  @JsonKey(name: 'type', defaultValue: 'collection')
   final String type;
 
   /// The path to the collection within the help center hierarchy.
   @override
+  @JsonKey(name: 'path', required: true)
   final String path;
 
   /// The URL-friendly slug of the collection.
   @override
+  @JsonKey(name: 'slug', required: true)
   final String slug;
 
   /// The Featurebase URL for the collection.
   @override
+  @JsonKey(name: 'featurebaseUrl', required: true)
   final String featurebaseUrl;
 
   /// The custom domain URL for the collection.
@@ -1042,23 +1052,16 @@ class _$CollectionImpl implements _Collection {
 
   /// The locale of the collection.
   @override
+  @JsonKey(name: 'locale', required: true)
   final String locale;
 
   /// An array of available locales for the collection.
-  final List<String> _availableLocales;
-
-  /// An array of available locales for the collection.
-  @override
-  List<String> get availableLocales {
-    if (_availableLocales is EqualUnmodifiableListView)
-      return _availableLocales;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_availableLocales);
-  }
-
+// required List<String> availableLocales,
   /// List of articles (only returned when using the withStructure option)
   final List<Article>? _structure;
 
+  /// An array of available locales for the collection.
+// required List<String> availableLocales,
   /// List of articles (only returned when using the withStructure option)
   @override
   List<Article>? get structure {
@@ -1071,7 +1074,7 @@ class _$CollectionImpl implements _Collection {
 
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, availableLocales: $availableLocales, structure: $structure)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, structure: $structure)';
   }
 
   @override
@@ -1102,8 +1105,6 @@ class _$CollectionImpl implements _Collection {
                 other.externalUrl == externalUrl) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             const DeepCollectionEquality()
-                .equals(other._availableLocales, _availableLocales) &&
-            const DeepCollectionEquality()
                 .equals(other._structure, _structure));
   }
 
@@ -1125,7 +1126,6 @@ class _$CollectionImpl implements _Collection {
       featurebaseUrl,
       externalUrl,
       locale,
-      const DeepCollectionEquality().hash(_availableLocales),
       const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of Collection
@@ -1146,21 +1146,27 @@ class _$CollectionImpl implements _Collection {
 
 abstract class _Collection implements Collection {
   const factory _Collection(
-      {required final String collectionId,
-      required final String name,
+      {@JsonKey(name: 'collectionId', required: true)
+      required final String collectionId,
+      @JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'description', required: true)
       required final String description,
       required final String? parentId,
+      @JsonKey(name: 'helpCenterId', required: true)
       required final String helpCenterId,
+      @JsonKey(name: 'organizationId', required: true)
       required final String organizationId,
+      @JsonKey(name: 'defaultLocale', required: true)
       required final String defaultLocale,
       final int? order,
+      @JsonKey(name: 'type', defaultValue: 'collection')
       required final String type,
-      required final String path,
-      required final String slug,
+      @JsonKey(name: 'path', required: true) required final String path,
+      @JsonKey(name: 'slug', required: true) required final String slug,
+      @JsonKey(name: 'featurebaseUrl', required: true)
       required final String featurebaseUrl,
       required final String? externalUrl,
-      required final String locale,
-      required final List<String> availableLocales,
+      @JsonKey(name: 'locale', required: true) required final String locale,
       final List<Article>? structure}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
@@ -1168,14 +1174,17 @@ abstract class _Collection implements Collection {
 
   /// The collection's unique ID.
   @override
+  @JsonKey(name: 'collectionId', required: true)
   String get collectionId;
 
   /// The name of the collection.
   @override
+  @JsonKey(name: 'name', required: true)
   String get name;
 
   /// A description of the collection.
   @override
+  @JsonKey(name: 'description', required: true)
   String get description;
 
   /// The ID of the parent collection, if the collection is nested.
@@ -1184,14 +1193,17 @@ abstract class _Collection implements Collection {
 
   /// The ID of the help center this collection belongs to.
   @override
+  @JsonKey(name: 'helpCenterId', required: true)
   String get helpCenterId;
 
   /// The ID of the organization that the collection belongs to.
   @override
+  @JsonKey(name: 'organizationId', required: true)
   String get organizationId;
 
   /// The default locale of the collection.
   @override
+  @JsonKey(name: 'defaultLocale', required: true)
   String get defaultLocale;
 
   /// The order of the collection in listings.
@@ -1200,18 +1212,22 @@ abstract class _Collection implements Collection {
 
   /// The type of the document, which is "collection".
   @override
+  @JsonKey(name: 'type', defaultValue: 'collection')
   String get type;
 
   /// The path to the collection within the help center hierarchy.
   @override
+  @JsonKey(name: 'path', required: true)
   String get path;
 
   /// The URL-friendly slug of the collection.
   @override
+  @JsonKey(name: 'slug', required: true)
   String get slug;
 
   /// The Featurebase URL for the collection.
   @override
+  @JsonKey(name: 'featurebaseUrl', required: true)
   String get featurebaseUrl;
 
   /// The custom domain URL for the collection.
@@ -1220,12 +1236,11 @@ abstract class _Collection implements Collection {
 
   /// The locale of the collection.
   @override
+  @JsonKey(name: 'locale', required: true)
   String get locale;
 
   /// An array of available locales for the collection.
-  @override
-  List<String> get availableLocales;
-
+// required List<String> availableLocales,
   /// List of articles (only returned when using the withStructure option)
   @override
   List<Article>? get structure;

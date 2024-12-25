@@ -4,49 +4,52 @@ part of featurebase_dart.models;
 class Collection with _$Collection {
   const factory Collection({
     /// The collection's unique ID.
-    required String collectionId,
+    @JsonKey(name: 'collectionId', required: true) required String collectionId,
 
     /// The name of the collection.
-    required String name,
+    @JsonKey(name: 'name', required: true) required String name,
 
     /// A description of the collection.
-    required String description,
+    @JsonKey(name: 'description', required: true) required String description,
 
     /// The ID of the parent collection, if the collection is nested.
     required String? parentId,
 
     /// The ID of the help center this collection belongs to.
-    required String helpCenterId,
+    @JsonKey(name: 'helpCenterId', required: true) required String helpCenterId,
 
     /// The ID of the organization that the collection belongs to.
+    @JsonKey(name: 'organizationId', required: true)
     required String organizationId,
 
     /// The default locale of the collection.
+    @JsonKey(name: 'defaultLocale', required: true)
     required String defaultLocale,
 
     /// The order of the collection in listings.
     int? order,
 
     /// The type of the document, which is "collection".
-    required String type,
+    @JsonKey(name: 'type', defaultValue: 'collection') required String type,
 
     /// The path to the collection within the help center hierarchy.
-    required String path,
+    @JsonKey(name: 'path', required: true) required String path,
 
     /// The URL-friendly slug of the collection.
-    required String slug,
+    @JsonKey(name: 'slug', required: true) required String slug,
 
     /// The Featurebase URL for the collection.
+    @JsonKey(name: 'featurebaseUrl', required: true)
     required String featurebaseUrl,
 
     /// The custom domain URL for the collection.
     required String? externalUrl,
 
     /// The locale of the collection.
-    required String locale,
+    @JsonKey(name: 'locale', required: true) required String locale,
 
     /// An array of available locales for the collection.
-    required List<String> availableLocales,
+    // required List<String> availableLocales,
 
     /// List of articles (only returned when using the withStructure option)
     List<Article>? structure,

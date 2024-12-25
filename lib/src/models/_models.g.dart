@@ -58,29 +58,42 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'isPublished': instance.isPublished,
     };
 
-_$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) =>
-    _$CollectionImpl(
-      collectionId: json['collectionId'] as String,
-      name: json['name'] as String,
-      description: json['description'] as String,
-      parentId: json['parentId'] as String?,
-      helpCenterId: json['helpCenterId'] as String,
-      organizationId: json['organizationId'] as String,
-      defaultLocale: json['defaultLocale'] as String,
-      order: (json['order'] as num?)?.toInt(),
-      type: json['type'] as String,
-      path: json['path'] as String,
-      slug: json['slug'] as String,
-      featurebaseUrl: json['featurebaseUrl'] as String,
-      externalUrl: json['externalUrl'] as String?,
-      locale: json['locale'] as String,
-      availableLocales: (json['availableLocales'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      structure: (json['structure'] as List<dynamic>?)
-          ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+_$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'collectionId',
+      'name',
+      'description',
+      'helpCenterId',
+      'organizationId',
+      'defaultLocale',
+      'path',
+      'slug',
+      'featurebaseUrl',
+      'locale'
+    ],
+  );
+  return _$CollectionImpl(
+    collectionId: json['collectionId'] as String,
+    name: json['name'] as String,
+    description: json['description'] as String,
+    parentId: json['parentId'] as String?,
+    helpCenterId: json['helpCenterId'] as String,
+    organizationId: json['organizationId'] as String,
+    defaultLocale: json['defaultLocale'] as String,
+    order: (json['order'] as num?)?.toInt(),
+    type: json['type'] as String? ?? 'collection',
+    path: json['path'] as String,
+    slug: json['slug'] as String,
+    featurebaseUrl: json['featurebaseUrl'] as String,
+    externalUrl: json['externalUrl'] as String?,
+    locale: json['locale'] as String,
+    structure: (json['structure'] as List<dynamic>?)
+        ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
     <String, dynamic>{
@@ -98,7 +111,6 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'featurebaseUrl': instance.featurebaseUrl,
       'externalUrl': instance.externalUrl,
       'locale': instance.locale,
-      'availableLocales': instance.availableLocales,
       'structure': instance.structure,
     };
 
