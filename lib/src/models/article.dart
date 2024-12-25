@@ -21,6 +21,9 @@ class Article with _$Article {
     /// Not returned when using withStructure
     String? body,
 
+    /// The icon of the article.
+    @JsonKey(name: 'icon') required FBIcon? icon,
+
     /// The ID of the parent collection, if any.
     String? parentId,
 

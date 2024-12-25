@@ -8,4 +8,5 @@ part '_models.freezed.dart';
 part 'article.dart';
 part 'collection.dart';
 part 'help_center.dart';
+part 'icon.dart';
 part 'nav_item.dart';

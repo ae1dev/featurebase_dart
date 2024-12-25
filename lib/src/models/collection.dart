@@ -15,6 +15,9 @@ class Collection with _$Collection {
     /// The ID of the parent collection, if the collection is nested.
     required String? parentId,
 
+    /// The icon of the collection.
+    @JsonKey(name: 'icon') required FBIcon? icon,
+
     /// The ID of the help center this collection belongs to.
     @JsonKey(name: 'helpCenterId', required: true) required String helpCenterId,
 

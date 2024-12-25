@@ -23,6 +23,9 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     title: json['title'] as String? ?? '',
     description: json['description'] as String,
     body: json['body'] as String?,
+    icon: json['icon'] == null
+        ? null
+        : FBIcon.fromJson(json['icon'] as Map<String, dynamic>),
     parentId: json['parentId'] as String?,
     helpCenterId: json['helpCenterId'] as String,
     organizationId: json['organizationId'] as String,
@@ -44,6 +47,7 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'title': instance.title,
       'description': instance.description,
       'body': instance.body,
+      'icon': instance.icon,
       'parentId': instance.parentId,
       'helpCenterId': instance.helpCenterId,
       'organizationId': instance.organizationId,
@@ -79,6 +83,9 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     description: json['description'] as String,
     parentId: json['parentId'] as String?,
+    icon: json['icon'] == null
+        ? null
+        : FBIcon.fromJson(json['icon'] as Map<String, dynamic>),
     helpCenterId: json['helpCenterId'] as String,
     organizationId: json['organizationId'] as String,
     defaultLocale: json['defaultLocale'] as String,
@@ -101,6 +108,7 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'name': instance.name,
       'description': instance.description,
       'parentId': instance.parentId,
+      'icon': instance.icon,
       'helpCenterId': instance.helpCenterId,
       'organizationId': instance.organizationId,
       'defaultLocale': instance.defaultLocale,
@@ -152,6 +160,23 @@ Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
       'structure': instance.structure,
+    };
+
+_$FBIconImpl _$$FBIconImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['value', 'type'],
+  );
+  return _$FBIconImpl(
+    value: json['value'] as String,
+    type: json['type'] as String,
+  );
+}
+
+Map<String, dynamic> _$$FBIconImplToJson(_$FBIconImpl instance) =>
+    <String, dynamic>{
+      'value': instance.value,
+      'type': instance.type,
     };
 
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>

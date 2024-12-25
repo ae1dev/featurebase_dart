@@ -41,6 +41,10 @@ mixin _$Article {
   /// Not returned when using withStructure
   String? get body => throw _privateConstructorUsedError;
 
+  /// The icon of the article.
+  @JsonKey(name: 'icon')
+  FBIcon? get icon => throw _privateConstructorUsedError;
+
   /// The ID of the parent collection, if any.
   String? get parentId => throw _privateConstructorUsedError;
 
@@ -104,6 +108,7 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'title', defaultValue: '') String title,
       @JsonKey(name: 'description', required: true) String description,
       String? body,
+      @JsonKey(name: 'icon') FBIcon? icon,
       String? parentId,
       @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
       @JsonKey(name: 'organizationId', required: true) String organizationId,
@@ -117,6 +122,8 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
+
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -138,6 +145,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? title = null,
     Object? description = null,
     Object? body = freezed,
+    Object? icon = freezed,
     Object? parentId = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
@@ -168,6 +176,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
@@ -218,6 +230,20 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
               as bool,
     ) as $Val);
   }
+
+  /// Create a copy of Article
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FBIconCopyWith<$Res>? get icon {
+    if (_value.icon == null) {
+      return null;
+    }
+
+    return $FBIconCopyWith<$Res>(_value.icon!, (value) {
+      return _then(_value.copyWith(icon: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -232,6 +258,7 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'title', defaultValue: '') String title,
       @JsonKey(name: 'description', required: true) String description,
       String? body,
+      @JsonKey(name: 'icon') FBIcon? icon,
       String? parentId,
       @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
       @JsonKey(name: 'organizationId', required: true) String organizationId,
@@ -245,6 +272,9 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
+
+  @override
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -264,6 +294,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? body = freezed,
+    Object? icon = freezed,
     Object? parentId = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
@@ -294,6 +325,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
@@ -354,6 +389,7 @@ class _$ArticleImpl implements _Article {
       @JsonKey(name: 'title', defaultValue: '') required this.title,
       @JsonKey(name: 'description', required: true) required this.description,
       this.body,
+      @JsonKey(name: 'icon') required this.icon,
       this.parentId,
       @JsonKey(name: 'helpCenterId', required: true) required this.helpCenterId,
       @JsonKey(name: 'organizationId', required: true)
@@ -398,6 +434,11 @@ class _$ArticleImpl implements _Article {
   /// Not returned when using withStructure
   @override
   final String? body;
+
+  /// The icon of the article.
+  @override
+  @JsonKey(name: 'icon')
+  final FBIcon? icon;
 
   /// The ID of the parent collection, if any.
   @override
@@ -457,7 +498,7 @@ class _$ArticleImpl implements _Article {
 
   @override
   String toString() {
-    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished)';
+    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, icon: $icon, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished)';
   }
 
   @override
@@ -471,6 +512,7 @@ class _$ArticleImpl implements _Article {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.body, body) || other.body == body) &&
+            (identical(other.icon, icon) || other.icon == icon) &&
             (identical(other.parentId, parentId) ||
                 other.parentId == parentId) &&
             (identical(other.helpCenterId, helpCenterId) ||
@@ -502,6 +544,7 @@ class _$ArticleImpl implements _Article {
       title,
       description,
       body,
+      icon,
       parentId,
       helpCenterId,
       organizationId,
@@ -539,6 +582,7 @@ abstract class _Article implements Article {
       @JsonKey(name: 'description', required: true)
       required final String description,
       final String? body,
+      @JsonKey(name: 'icon') required final FBIcon? icon,
       final String? parentId,
       @JsonKey(name: 'helpCenterId', required: true)
       required final String helpCenterId,
@@ -583,6 +627,11 @@ abstract class _Article implements Article {
   /// Not returned when using withStructure
   @override
   String? get body;
+
+  /// The icon of the article.
+  @override
+  @JsonKey(name: 'icon')
+  FBIcon? get icon;
 
   /// The ID of the parent collection, if any.
   @override
@@ -667,6 +716,10 @@ mixin _$Collection {
   /// The ID of the parent collection, if the collection is nested.
   String? get parentId => throw _privateConstructorUsedError;
 
+  /// The icon of the collection.
+  @JsonKey(name: 'icon')
+  FBIcon? get icon => throw _privateConstructorUsedError;
+
   /// The ID of the help center this collection belongs to.
   @JsonKey(name: 'helpCenterId', required: true)
   String get helpCenterId => throw _privateConstructorUsedError;
@@ -731,6 +784,7 @@ abstract class $CollectionCopyWith<$Res> {
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'description', required: true) String description,
       String? parentId,
+      @JsonKey(name: 'icon') FBIcon? icon,
       @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
       @JsonKey(name: 'organizationId', required: true) String organizationId,
       @JsonKey(name: 'defaultLocale', required: true) String defaultLocale,
@@ -742,6 +796,8 @@ abstract class $CollectionCopyWith<$Res> {
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
       List<CollectionContent>? structure});
+
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -763,6 +819,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? name = null,
     Object? description = null,
     Object? parentId = freezed,
+    Object? icon = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
     Object? defaultLocale = null,
@@ -792,6 +849,10 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
               as String?,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
       helpCenterId: null == helpCenterId
           ? _value.helpCenterId
           : helpCenterId // ignore: cast_nullable_to_non_nullable
@@ -838,6 +899,20 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
               as List<CollectionContent>?,
     ) as $Val);
   }
+
+  /// Create a copy of Collection
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FBIconCopyWith<$Res>? get icon {
+    if (_value.icon == null) {
+      return null;
+    }
+
+    return $FBIconCopyWith<$Res>(_value.icon!, (value) {
+      return _then(_value.copyWith(icon: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -853,6 +928,7 @@ abstract class _$$CollectionImplCopyWith<$Res>
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'description', required: true) String description,
       String? parentId,
+      @JsonKey(name: 'icon') FBIcon? icon,
       @JsonKey(name: 'helpCenterId', required: true) String helpCenterId,
       @JsonKey(name: 'organizationId', required: true) String organizationId,
       @JsonKey(name: 'defaultLocale', required: true) String defaultLocale,
@@ -864,6 +940,9 @@ abstract class _$$CollectionImplCopyWith<$Res>
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
       List<CollectionContent>? structure});
+
+  @override
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -883,6 +962,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? parentId = freezed,
+    Object? icon = freezed,
     Object? helpCenterId = null,
     Object? organizationId = null,
     Object? defaultLocale = null,
@@ -912,6 +992,10 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
               as String?,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
       helpCenterId: null == helpCenterId
           ? _value.helpCenterId
           : helpCenterId // ignore: cast_nullable_to_non_nullable
@@ -969,6 +1053,7 @@ class _$CollectionImpl implements _Collection {
       @JsonKey(name: 'name', required: true) required this.name,
       @JsonKey(name: 'description', required: true) required this.description,
       required this.parentId,
+      @JsonKey(name: 'icon') required this.icon,
       @JsonKey(name: 'helpCenterId', required: true) required this.helpCenterId,
       @JsonKey(name: 'organizationId', required: true)
       required this.organizationId,
@@ -1006,6 +1091,11 @@ class _$CollectionImpl implements _Collection {
   /// The ID of the parent collection, if the collection is nested.
   @override
   final String? parentId;
+
+  /// The icon of the collection.
+  @override
+  @JsonKey(name: 'icon')
+  final FBIcon? icon;
 
   /// The ID of the help center this collection belongs to.
   @override
@@ -1074,7 +1164,7 @@ class _$CollectionImpl implements _Collection {
 
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, structure: $structure)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, structure: $structure)';
   }
 
   @override
@@ -1089,6 +1179,7 @@ class _$CollectionImpl implements _Collection {
                 other.description == description) &&
             (identical(other.parentId, parentId) ||
                 other.parentId == parentId) &&
+            (identical(other.icon, icon) || other.icon == icon) &&
             (identical(other.helpCenterId, helpCenterId) ||
                 other.helpCenterId == helpCenterId) &&
             (identical(other.organizationId, organizationId) ||
@@ -1116,6 +1207,7 @@ class _$CollectionImpl implements _Collection {
       name,
       description,
       parentId,
+      icon,
       helpCenterId,
       organizationId,
       defaultLocale,
@@ -1152,6 +1244,7 @@ abstract class _Collection implements Collection {
       @JsonKey(name: 'description', required: true)
       required final String description,
       required final String? parentId,
+      @JsonKey(name: 'icon') required final FBIcon? icon,
       @JsonKey(name: 'helpCenterId', required: true)
       required final String helpCenterId,
       @JsonKey(name: 'organizationId', required: true)
@@ -1190,6 +1283,11 @@ abstract class _Collection implements Collection {
   /// The ID of the parent collection, if the collection is nested.
   @override
   String? get parentId;
+
+  /// The icon of the collection.
+  @override
+  @JsonKey(name: 'icon')
+  FBIcon? get icon;
 
   /// The ID of the help center this collection belongs to.
   @override
@@ -1460,7 +1558,6 @@ class _$CollectionContentArticleImpl implements _CollectionContentArticle {
     return orElse();
   }
 
-  @override
   Map<String, dynamic> toJson() {
     return when(
       article: (article) => article.toJson(),
@@ -1628,7 +1725,6 @@ class _$CollectionContentCollectionImpl
     return orElse();
   }
 
-  @override
   Map<String, dynamic> toJson() {
     return when(
       article: (article) => article.toJson(),
@@ -2166,6 +2262,191 @@ abstract class _HelpCenter implements HelpCenter {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HelpCenterImplCopyWith<_$HelpCenterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FBIcon _$FBIconFromJson(Map<String, dynamic> json) {
+  return _FBIcon.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FBIcon {
+  /// Icon value
+  @JsonKey(name: 'value', required: true)
+  String get value => throw _privateConstructorUsedError;
+
+  /// Icon type
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this FBIcon to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FBIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FBIconCopyWith<FBIcon> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FBIconCopyWith<$Res> {
+  factory $FBIconCopyWith(FBIcon value, $Res Function(FBIcon) then) =
+      _$FBIconCopyWithImpl<$Res, FBIcon>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'value', required: true) String value,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class _$FBIconCopyWithImpl<$Res, $Val extends FBIcon>
+    implements $FBIconCopyWith<$Res> {
+  _$FBIconCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FBIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FBIconImplCopyWith<$Res> implements $FBIconCopyWith<$Res> {
+  factory _$$FBIconImplCopyWith(
+          _$FBIconImpl value, $Res Function(_$FBIconImpl) then) =
+      __$$FBIconImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'value', required: true) String value,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class __$$FBIconImplCopyWithImpl<$Res>
+    extends _$FBIconCopyWithImpl<$Res, _$FBIconImpl>
+    implements _$$FBIconImplCopyWith<$Res> {
+  __$$FBIconImplCopyWithImpl(
+      _$FBIconImpl _value, $Res Function(_$FBIconImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FBIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+    Object? type = null,
+  }) {
+    return _then(_$FBIconImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FBIconImpl implements _FBIcon {
+  const _$FBIconImpl(
+      {@JsonKey(name: 'value', required: true) required this.value,
+      @JsonKey(name: 'type', required: true) required this.type});
+
+  factory _$FBIconImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FBIconImplFromJson(json);
+
+  /// Icon value
+  @override
+  @JsonKey(name: 'value', required: true)
+  final String value;
+
+  /// Icon type
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  @override
+  String toString() {
+    return 'FBIcon(value: $value, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FBIconImpl &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, value, type);
+
+  /// Create a copy of FBIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FBIconImplCopyWith<_$FBIconImpl> get copyWith =>
+      __$$FBIconImplCopyWithImpl<_$FBIconImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FBIconImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FBIcon implements FBIcon {
+  const factory _FBIcon(
+          {@JsonKey(name: 'value', required: true) required final String value,
+          @JsonKey(name: 'type', required: true) required final String type}) =
+      _$FBIconImpl;
+
+  factory _FBIcon.fromJson(Map<String, dynamic> json) = _$FBIconImpl.fromJson;
+
+  /// Icon value
+  @override
+  @JsonKey(name: 'value', required: true)
+  String get value;
+
+  /// Icon type
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// Create a copy of FBIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FBIconImplCopyWith<_$FBIconImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
