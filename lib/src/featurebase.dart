@@ -24,7 +24,7 @@ abstract class FeaturebaseApiBase {
     String baseUrl = "https://help.featurebase.app",
   }) {
     _baseUrl = baseUrl;
-    _dio.options.baseUrl = _baseUrl;
+    _dio.options.baseUrl = '$_baseUrl/api/v1';
 
     _helpCenter = HelpCenterEnd(this);
   }
