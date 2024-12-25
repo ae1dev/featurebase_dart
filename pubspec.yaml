@@ -1,7 +1,7 @@
 name: featurebase_dart
 description: "A Dart SDK for Featurebase"
 version: 0.0.1
-homepage:
+homepage: https://pub.dev/packages/featurebase
 
 environment:
   sdk: ^3.5.4
