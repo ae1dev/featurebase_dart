@@ -15,7 +15,8 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
       'organizationId',
       'locale',
       'slug',
-      'featurebaseUrl'
+      'featurebaseUrl',
+      'author'
     ],
   );
   return _$ArticleImpl(
@@ -38,6 +39,7 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     externalUrl: json['externalUrl'] as String?,
     isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool? ?? false,
     isPublished: json['isPublished'] as bool? ?? true,
+    author: Author.fromJson(json['author'] as Map<String, dynamic>),
   );
 }
 
@@ -60,6 +62,26 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'externalUrl': instance.externalUrl,
       'isDraftDiffersFromLive': instance.isDraftDiffersFromLive,
       'isPublished': instance.isPublished,
+      'author': instance.author,
+    };
+
+_$AuthorImpl _$$AuthorImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['name', 'authorId'],
+  );
+  return _$AuthorImpl(
+    name: json['name'] as String,
+    avatarUrl: json['avatarUrl'] as String?,
+    authorId: json['authorId'] as String,
+  );
+}
+
+Map<String, dynamic> _$$AuthorImplToJson(_$AuthorImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'avatarUrl': instance.avatarUrl,
+      'authorId': instance.authorId,
     };
 
 _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
@@ -75,7 +97,8 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
       'path',
       'slug',
       'featurebaseUrl',
-      'locale'
+      'locale',
+      'authors'
     ],
   );
   return _$CollectionImpl(
@@ -96,6 +119,9 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     featurebaseUrl: json['featurebaseUrl'] as String,
     externalUrl: json['externalUrl'] as String?,
     locale: json['locale'] as String,
+    authors: (json['authors'] as List<dynamic>)
+        .map((e) => Author.fromJson(e as Map<String, dynamic>))
+        .toList(),
     structure: (json['structure'] as List<dynamic>?)
         ?.map((e) => CollectionContent.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -119,6 +145,7 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'featurebaseUrl': instance.featurebaseUrl,
       'externalUrl': instance.externalUrl,
       'locale': instance.locale,
+      'authors': instance.authors,
       'structure': instance.structure,
     };
 

@@ -67,6 +67,9 @@ class Article with _$Article {
     /// Indicates whether the article is published.
     @JsonKey(name: 'isPublished', defaultValue: true) required bool isPublished,
 
+    /// Author of the article
+    @JsonKey(name: 'author', required: true) required Author author,
+
     /// An array of available locales for the article.
     // required List<String> availableLocales,
 
@@ -76,4 +79,20 @@ class Article with _$Article {
 
   factory Article.fromJson(Map<String, Object?> json) =>
       _$ArticleFromJson(json);
+}
+
+@freezed
+class Author with _$Author {
+  const factory Author({
+    /// Name of the author
+    @JsonKey(name: 'name', required: true) required String name,
+
+    /// Avatar URL of the author
+    @JsonKey(name: 'avatarUrl') String? avatarUrl,
+
+    /// Id of the author
+    @JsonKey(name: 'authorId', required: true) required String authorId,
+  }) = _Author;
+
+  factory Author.fromJson(Map<String, Object?> json) => _$AuthorFromJson(json);
 }

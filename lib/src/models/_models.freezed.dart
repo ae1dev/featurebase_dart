@@ -89,6 +89,10 @@ mixin _$Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished => throw _privateConstructorUsedError;
 
+  /// Author of the article
+  @JsonKey(name: 'author', required: true)
+  Author get author => throw _privateConstructorUsedError;
+
   /// Serializes this Article to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -121,9 +125,11 @@ abstract class $ArticleCopyWith<$Res> {
       String? externalUrl,
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
-      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
+      @JsonKey(name: 'author', required: true) Author author});
 
   $FBIconCopyWith<$Res>? get icon;
+  $AuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -158,6 +164,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
+    Object? author = null,
   }) {
     return _then(_value.copyWith(
       articleId: null == articleId
@@ -228,6 +235,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
     ) as $Val);
   }
 
@@ -242,6 +253,16 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
 
     return $FBIconCopyWith<$Res>(_value.icon!, (value) {
       return _then(_value.copyWith(icon: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Article
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthorCopyWith<$Res> get author {
+    return $AuthorCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
     });
   }
 }
@@ -271,10 +292,13 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       String? externalUrl,
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
-      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished});
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
+      @JsonKey(name: 'author', required: true) Author author});
 
   @override
   $FBIconCopyWith<$Res>? get icon;
+  @override
+  $AuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -307,6 +331,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
+    Object? author = null,
   }) {
     return _then(_$ArticleImpl(
       articleId: null == articleId
@@ -377,6 +402,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
     ));
   }
 }
@@ -405,7 +434,8 @@ class _$ArticleImpl implements _Article {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required this.isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
-      required this.isPublished});
+      required this.isPublished,
+      @JsonKey(name: 'author', required: true) required this.author});
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
@@ -496,9 +526,14 @@ class _$ArticleImpl implements _Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   final bool isPublished;
 
+  /// Author of the article
+  @override
+  @JsonKey(name: 'author', required: true)
+  final Author author;
+
   @override
   String toString() {
-    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, icon: $icon, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished)';
+    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, icon: $icon, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, author: $author)';
   }
 
   @override
@@ -533,7 +568,8 @@ class _$ArticleImpl implements _Article {
             (identical(other.isDraftDiffersFromLive, isDraftDiffersFromLive) ||
                 other.isDraftDiffersFromLive == isDraftDiffersFromLive) &&
             (identical(other.isPublished, isPublished) ||
-                other.isPublished == isPublished));
+                other.isPublished == isPublished) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -556,7 +592,8 @@ class _$ArticleImpl implements _Article {
       featurebaseUrl,
       externalUrl,
       isDraftDiffersFromLive,
-      isPublished);
+      isPublished,
+      author);
 
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.
@@ -599,7 +636,9 @@ abstract class _Article implements Article {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       required final bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
-      required final bool isPublished}) = _$ArticleImpl;
+      required final bool isPublished,
+      @JsonKey(name: 'author', required: true)
+      required final Author author}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
@@ -687,11 +726,232 @@ abstract class _Article implements Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished;
 
+  /// Author of the article
+  @override
+  @JsonKey(name: 'author', required: true)
+  Author get author;
+
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Author _$AuthorFromJson(Map<String, dynamic> json) {
+  return _Author.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Author {
+  /// Name of the author
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// Avatar URL of the author
+  @JsonKey(name: 'avatarUrl')
+  String? get avatarUrl => throw _privateConstructorUsedError;
+
+  /// Id of the author
+  @JsonKey(name: 'authorId', required: true)
+  String get authorId => throw _privateConstructorUsedError;
+
+  /// Serializes this Author to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Author
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AuthorCopyWith<Author> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthorCopyWith<$Res> {
+  factory $AuthorCopyWith(Author value, $Res Function(Author) then) =
+      _$AuthorCopyWithImpl<$Res, Author>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'avatarUrl') String? avatarUrl,
+      @JsonKey(name: 'authorId', required: true) String authorId});
+}
+
+/// @nodoc
+class _$AuthorCopyWithImpl<$Res, $Val extends Author>
+    implements $AuthorCopyWith<$Res> {
+  _$AuthorCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Author
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? avatarUrl = freezed,
+    Object? authorId = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      authorId: null == authorId
+          ? _value.authorId
+          : authorId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AuthorImplCopyWith<$Res> implements $AuthorCopyWith<$Res> {
+  factory _$$AuthorImplCopyWith(
+          _$AuthorImpl value, $Res Function(_$AuthorImpl) then) =
+      __$$AuthorImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'avatarUrl') String? avatarUrl,
+      @JsonKey(name: 'authorId', required: true) String authorId});
+}
+
+/// @nodoc
+class __$$AuthorImplCopyWithImpl<$Res>
+    extends _$AuthorCopyWithImpl<$Res, _$AuthorImpl>
+    implements _$$AuthorImplCopyWith<$Res> {
+  __$$AuthorImplCopyWithImpl(
+      _$AuthorImpl _value, $Res Function(_$AuthorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Author
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? avatarUrl = freezed,
+    Object? authorId = null,
+  }) {
+    return _then(_$AuthorImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      authorId: null == authorId
+          ? _value.authorId
+          : authorId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AuthorImpl implements _Author {
+  const _$AuthorImpl(
+      {@JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'avatarUrl') this.avatarUrl,
+      @JsonKey(name: 'authorId', required: true) required this.authorId});
+
+  factory _$AuthorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuthorImplFromJson(json);
+
+  /// Name of the author
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// Avatar URL of the author
+  @override
+  @JsonKey(name: 'avatarUrl')
+  final String? avatarUrl;
+
+  /// Id of the author
+  @override
+  @JsonKey(name: 'authorId', required: true)
+  final String authorId;
+
+  @override
+  String toString() {
+    return 'Author(name: $name, avatarUrl: $avatarUrl, authorId: $authorId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthorImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                other.avatarUrl == avatarUrl) &&
+            (identical(other.authorId, authorId) ||
+                other.authorId == authorId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, avatarUrl, authorId);
+
+  /// Create a copy of Author
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthorImplCopyWith<_$AuthorImpl> get copyWith =>
+      __$$AuthorImplCopyWithImpl<_$AuthorImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuthorImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Author implements Author {
+  const factory _Author(
+      {@JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'avatarUrl') final String? avatarUrl,
+      @JsonKey(name: 'authorId', required: true)
+      required final String authorId}) = _$AuthorImpl;
+
+  factory _Author.fromJson(Map<String, dynamic> json) = _$AuthorImpl.fromJson;
+
+  /// Name of the author
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// Avatar URL of the author
+  @override
+  @JsonKey(name: 'avatarUrl')
+  String? get avatarUrl;
+
+  /// Id of the author
+  @override
+  @JsonKey(name: 'authorId', required: true)
+  String get authorId;
+
+  /// Create a copy of Author
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthorImplCopyWith<_$AuthorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -758,6 +1018,10 @@ mixin _$Collection {
   @JsonKey(name: 'locale', required: true)
   String get locale => throw _privateConstructorUsedError;
 
+  /// Authors of the article
+  @JsonKey(name: 'authors', required: true)
+  List<Author> get authors => throw _privateConstructorUsedError;
+
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
   /// List of articles and collections (only returned when using the withStructure option)
@@ -795,6 +1059,7 @@ abstract class $CollectionCopyWith<$Res> {
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
+      @JsonKey(name: 'authors', required: true) List<Author> authors,
       List<CollectionContent>? structure});
 
   $FBIconCopyWith<$Res>? get icon;
@@ -830,6 +1095,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
+    Object? authors = null,
     Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -893,6 +1159,10 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
+      authors: null == authors
+          ? _value.authors
+          : authors // ignore: cast_nullable_to_non_nullable
+              as List<Author>,
       structure: freezed == structure
           ? _value.structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -939,6 +1209,7 @@ abstract class _$$CollectionImplCopyWith<$Res>
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
+      @JsonKey(name: 'authors', required: true) List<Author> authors,
       List<CollectionContent>? structure});
 
   @override
@@ -973,6 +1244,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
+    Object? authors = null,
     Object? structure = freezed,
   }) {
     return _then(_$CollectionImpl(
@@ -1036,6 +1308,10 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
+      authors: null == authors
+          ? _value._authors
+          : authors // ignore: cast_nullable_to_non_nullable
+              as List<Author>,
       structure: freezed == structure
           ? _value._structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -1067,8 +1343,11 @@ class _$CollectionImpl implements _Collection {
       required this.featurebaseUrl,
       required this.externalUrl,
       @JsonKey(name: 'locale', required: true) required this.locale,
+      @JsonKey(name: 'authors', required: true)
+      required final List<Author> authors,
       final List<CollectionContent>? structure})
-      : _structure = structure;
+      : _authors = authors,
+        _structure = structure;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CollectionImplFromJson(json);
@@ -1145,6 +1424,18 @@ class _$CollectionImpl implements _Collection {
   @JsonKey(name: 'locale', required: true)
   final String locale;
 
+  /// Authors of the article
+  final List<Author> _authors;
+
+  /// Authors of the article
+  @override
+  @JsonKey(name: 'authors', required: true)
+  List<Author> get authors {
+    if (_authors is EqualUnmodifiableListView) return _authors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_authors);
+  }
+
   /// An array of available locales for the collection.
 // required List<String> availableLocales,
   /// List of articles and collections (only returned when using the withStructure option)
@@ -1164,7 +1455,7 @@ class _$CollectionImpl implements _Collection {
 
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, structure: $structure)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, authors: $authors, structure: $structure)';
   }
 
   @override
@@ -1195,6 +1486,7 @@ class _$CollectionImpl implements _Collection {
             (identical(other.externalUrl, externalUrl) ||
                 other.externalUrl == externalUrl) &&
             (identical(other.locale, locale) || other.locale == locale) &&
+            const DeepCollectionEquality().equals(other._authors, _authors) &&
             const DeepCollectionEquality()
                 .equals(other._structure, _structure));
   }
@@ -1218,6 +1510,7 @@ class _$CollectionImpl implements _Collection {
       featurebaseUrl,
       externalUrl,
       locale,
+      const DeepCollectionEquality().hash(_authors),
       const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of Collection
@@ -1260,6 +1553,8 @@ abstract class _Collection implements Collection {
       required final String featurebaseUrl,
       required final String? externalUrl,
       @JsonKey(name: 'locale', required: true) required final String locale,
+      @JsonKey(name: 'authors', required: true)
+      required final List<Author> authors,
       final List<CollectionContent>? structure}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
@@ -1336,6 +1631,11 @@ abstract class _Collection implements Collection {
   @override
   @JsonKey(name: 'locale', required: true)
   String get locale;
+
+  /// Authors of the article
+  @override
+  @JsonKey(name: 'authors', required: true)
+  List<Author> get authors;
 
   /// An array of available locales for the collection.
 // required List<String> availableLocales,

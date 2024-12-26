@@ -51,6 +51,9 @@ class Collection with _$Collection {
     /// The locale of the collection.
     @JsonKey(name: 'locale', required: true) required String locale,
 
+    /// Authors of the article
+    @JsonKey(name: 'authors', required: true) required List<Author> authors,
+
     /// An array of available locales for the collection.
     // required List<String> availableLocales,
 
