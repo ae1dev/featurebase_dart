@@ -2880,9 +2880,18 @@ NavItem _$NavItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NavItem {
+  /// The type of the nav item
   String get type => throw _privateConstructorUsedError;
+
+  /// The title of the nav item
   String get title => throw _privateConstructorUsedError;
+
+  /// The url of the nav item
   String get url => throw _privateConstructorUsedError;
+
+  /// The icon of the nav item
+  @JsonKey(name: 'icon')
+  FBIcon? get icon => throw _privateConstructorUsedError;
 
   /// Serializes this NavItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -2898,7 +2907,13 @@ abstract class $NavItemCopyWith<$Res> {
   factory $NavItemCopyWith(NavItem value, $Res Function(NavItem) then) =
       _$NavItemCopyWithImpl<$Res, NavItem>;
   @useResult
-  $Res call({String type, String title, String url});
+  $Res call(
+      {String type,
+      String title,
+      String url,
+      @JsonKey(name: 'icon') FBIcon? icon});
+
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -2919,6 +2934,7 @@ class _$NavItemCopyWithImpl<$Res, $Val extends NavItem>
     Object? type = null,
     Object? title = null,
     Object? url = null,
+    Object? icon = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -2933,7 +2949,25 @@ class _$NavItemCopyWithImpl<$Res, $Val extends NavItem>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
     ) as $Val);
+  }
+
+  /// Create a copy of NavItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FBIconCopyWith<$Res>? get icon {
+    if (_value.icon == null) {
+      return null;
+    }
+
+    return $FBIconCopyWith<$Res>(_value.icon!, (value) {
+      return _then(_value.copyWith(icon: value) as $Val);
+    });
   }
 }
 
@@ -2944,7 +2978,14 @@ abstract class _$$NavItemImplCopyWith<$Res> implements $NavItemCopyWith<$Res> {
       __$$NavItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type, String title, String url});
+  $Res call(
+      {String type,
+      String title,
+      String url,
+      @JsonKey(name: 'icon') FBIcon? icon});
+
+  @override
+  $FBIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
@@ -2963,6 +3004,7 @@ class __$$NavItemImplCopyWithImpl<$Res>
     Object? type = null,
     Object? title = null,
     Object? url = null,
+    Object? icon = freezed,
   }) {
     return _then(_$NavItemImpl(
       type: null == type
@@ -2977,6 +3019,10 @@ class __$$NavItemImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      icon: freezed == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as FBIcon?,
     ));
   }
 }
@@ -2985,21 +3031,34 @@ class __$$NavItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NavItemImpl implements _NavItem {
   const _$NavItemImpl(
-      {required this.type, required this.title, required this.url});
+      {required this.type,
+      required this.title,
+      required this.url,
+      @JsonKey(name: 'icon') required this.icon});
 
   factory _$NavItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$NavItemImplFromJson(json);
 
+  /// The type of the nav item
   @override
   final String type;
+
+  /// The title of the nav item
   @override
   final String title;
+
+  /// The url of the nav item
   @override
   final String url;
 
+  /// The icon of the nav item
+  @override
+  @JsonKey(name: 'icon')
+  final FBIcon? icon;
+
   @override
   String toString() {
-    return 'NavItem(type: $type, title: $title, url: $url)';
+    return 'NavItem(type: $type, title: $title, url: $url, icon: $icon)';
   }
 
   @override
@@ -3009,12 +3068,13 @@ class _$NavItemImpl implements _NavItem {
             other is _$NavItemImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.icon, icon) || other.icon == icon));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, type, title, url);
+  int get hashCode => Object.hash(runtimeType, type, title, url, icon);
 
   /// Create a copy of NavItem
   /// with the given fields replaced by the non-null parameter values.
@@ -3036,16 +3096,27 @@ abstract class _NavItem implements NavItem {
   const factory _NavItem(
       {required final String type,
       required final String title,
-      required final String url}) = _$NavItemImpl;
+      required final String url,
+      @JsonKey(name: 'icon') required final FBIcon? icon}) = _$NavItemImpl;
 
   factory _NavItem.fromJson(Map<String, dynamic> json) = _$NavItemImpl.fromJson;
 
+  /// The type of the nav item
   @override
   String get type;
+
+  /// The title of the nav item
   @override
   String get title;
+
+  /// The url of the nav item
   @override
   String get url;
+
+  /// The icon of the nav item
+  @override
+  @JsonKey(name: 'icon')
+  FBIcon? get icon;
 
   /// Create a copy of NavItem
   /// with the given fields replaced by the non-null parameter values.

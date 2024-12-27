@@ -226,6 +226,9 @@ _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       title: json['title'] as String,
       url: json['url'] as String,
+      icon: json['icon'] == null
+          ? null
+          : FBIcon.fromJson(json['icon'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
@@ -233,4 +236,5 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
       'type': instance.type,
       'title': instance.title,
       'url': instance.url,
+      'icon': instance.icon,
     };
