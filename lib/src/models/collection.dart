@@ -55,7 +55,8 @@ class Collection with _$Collection {
     @JsonKey(name: 'authors', required: true) required List<Author> authors,
 
     /// An array of available locales for the collection.
-    // required List<String> availableLocales,
+    @JsonKey(name: 'availableLocales', required: true)
+    required List<String> availableLocales,
 
     /// List of articles and collections (only returned when using the withStructure option)
     List<CollectionContent>? structure,

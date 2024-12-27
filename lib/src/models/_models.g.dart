@@ -16,7 +16,9 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
       'locale',
       'slug',
       'featurebaseUrl',
-      'author'
+      'author',
+      'availableLocales',
+      'publishedLocales'
     ],
   );
   return _$ArticleImpl(
@@ -40,6 +42,12 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool? ?? false,
     isPublished: json['isPublished'] as bool? ?? true,
     author: Author.fromJson(json['author'] as Map<String, dynamic>),
+    availableLocales: (json['availableLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    publishedLocales: (json['publishedLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
   );
 }
 
@@ -63,6 +71,8 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'isDraftDiffersFromLive': instance.isDraftDiffersFromLive,
       'isPublished': instance.isPublished,
       'author': instance.author,
+      'availableLocales': instance.availableLocales,
+      'publishedLocales': instance.publishedLocales,
     };
 
 _$AuthorImpl _$$AuthorImplFromJson(Map<String, dynamic> json) {
@@ -98,7 +108,8 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
       'slug',
       'featurebaseUrl',
       'locale',
-      'authors'
+      'authors',
+      'availableLocales'
     ],
   );
   return _$CollectionImpl(
@@ -121,6 +132,9 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     locale: json['locale'] as String,
     authors: (json['authors'] as List<dynamic>)
         .map((e) => Author.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    availableLocales: (json['availableLocales'] as List<dynamic>)
+        .map((e) => e as String)
         .toList(),
     structure: (json['structure'] as List<dynamic>?)
         ?.map((e) => CollectionContent.fromJson(e as Map<String, dynamic>))
@@ -146,6 +160,7 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'externalUrl': instance.externalUrl,
       'locale': instance.locale,
       'authors': instance.authors,
+      'availableLocales': instance.availableLocales,
       'structure': instance.structure,
     };
 

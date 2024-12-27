@@ -71,10 +71,12 @@ class Article with _$Article {
     @JsonKey(name: 'author', required: true) required Author author,
 
     /// An array of available locales for the article.
-    // required List<String> availableLocales,
+    @JsonKey(name: 'availableLocales', required: true)
+    required List<String> availableLocales,
 
     /// An array of locales in which the article is published.
-    // required List<String> publishedLocales,
+    @JsonKey(name: 'publishedLocales', required: true)
+    required List<String> publishedLocales,
   }) = _Article;
 
   factory Article.fromJson(Map<String, Object?> json) =>

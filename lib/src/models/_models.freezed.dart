@@ -93,6 +93,14 @@ mixin _$Article {
   @JsonKey(name: 'author', required: true)
   Author get author => throw _privateConstructorUsedError;
 
+  /// An array of available locales for the article.
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales => throw _privateConstructorUsedError;
+
+  /// An array of locales in which the article is published.
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales => throw _privateConstructorUsedError;
+
   /// Serializes this Article to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -126,7 +134,11 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
-      @JsonKey(name: 'author', required: true) Author author});
+      @JsonKey(name: 'author', required: true) Author author,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      List<String> publishedLocales});
 
   $FBIconCopyWith<$Res>? get icon;
   $AuthorCopyWith<$Res> get author;
@@ -165,6 +177,8 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
     Object? author = null,
+    Object? availableLocales = null,
+    Object? publishedLocales = null,
   }) {
     return _then(_value.copyWith(
       articleId: null == articleId
@@ -239,6 +253,14 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as Author,
+      availableLocales: null == availableLocales
+          ? _value.availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      publishedLocales: null == publishedLocales
+          ? _value.publishedLocales
+          : publishedLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 
@@ -293,7 +315,11 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
-      @JsonKey(name: 'author', required: true) Author author});
+      @JsonKey(name: 'author', required: true) Author author,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      List<String> publishedLocales});
 
   @override
   $FBIconCopyWith<$Res>? get icon;
@@ -332,6 +358,8 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
     Object? author = null,
+    Object? availableLocales = null,
+    Object? publishedLocales = null,
   }) {
     return _then(_$ArticleImpl(
       articleId: null == articleId
@@ -406,6 +434,14 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as Author,
+      availableLocales: null == availableLocales
+          ? _value._availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      publishedLocales: null == publishedLocales
+          ? _value._publishedLocales
+          : publishedLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -435,7 +471,13 @@ class _$ArticleImpl implements _Article {
       required this.isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
       required this.isPublished,
-      @JsonKey(name: 'author', required: true) required this.author});
+      @JsonKey(name: 'author', required: true) required this.author,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      required final List<String> publishedLocales})
+      : _availableLocales = availableLocales,
+        _publishedLocales = publishedLocales;
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
@@ -531,9 +573,35 @@ class _$ArticleImpl implements _Article {
   @JsonKey(name: 'author', required: true)
   final Author author;
 
+  /// An array of available locales for the article.
+  final List<String> _availableLocales;
+
+  /// An array of available locales for the article.
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales {
+    if (_availableLocales is EqualUnmodifiableListView)
+      return _availableLocales;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableLocales);
+  }
+
+  /// An array of locales in which the article is published.
+  final List<String> _publishedLocales;
+
+  /// An array of locales in which the article is published.
+  @override
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales {
+    if (_publishedLocales is EqualUnmodifiableListView)
+      return _publishedLocales;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_publishedLocales);
+  }
+
   @override
   String toString() {
-    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, icon: $icon, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, author: $author)';
+    return 'Article(articleId: $articleId, title: $title, description: $description, body: $body, icon: $icon, parentId: $parentId, helpCenterId: $helpCenterId, organizationId: $organizationId, state: $state, locale: $locale, createdAt: $createdAt, updatedAt: $updatedAt, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, author: $author, availableLocales: $availableLocales, publishedLocales: $publishedLocales)';
   }
 
   @override
@@ -569,31 +637,38 @@ class _$ArticleImpl implements _Article {
                 other.isDraftDiffersFromLive == isDraftDiffersFromLive) &&
             (identical(other.isPublished, isPublished) ||
                 other.isPublished == isPublished) &&
-            (identical(other.author, author) || other.author == author));
+            (identical(other.author, author) || other.author == author) &&
+            const DeepCollectionEquality()
+                .equals(other._availableLocales, _availableLocales) &&
+            const DeepCollectionEquality()
+                .equals(other._publishedLocales, _publishedLocales));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      articleId,
-      title,
-      description,
-      body,
-      icon,
-      parentId,
-      helpCenterId,
-      organizationId,
-      state,
-      locale,
-      createdAt,
-      updatedAt,
-      slug,
-      featurebaseUrl,
-      externalUrl,
-      isDraftDiffersFromLive,
-      isPublished,
-      author);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        articleId,
+        title,
+        description,
+        body,
+        icon,
+        parentId,
+        helpCenterId,
+        organizationId,
+        state,
+        locale,
+        createdAt,
+        updatedAt,
+        slug,
+        featurebaseUrl,
+        externalUrl,
+        isDraftDiffersFromLive,
+        isPublished,
+        author,
+        const DeepCollectionEquality().hash(_availableLocales),
+        const DeepCollectionEquality().hash(_publishedLocales)
+      ]);
 
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.
@@ -637,8 +712,11 @@ abstract class _Article implements Article {
       required final bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
       required final bool isPublished,
-      @JsonKey(name: 'author', required: true)
-      required final Author author}) = _$ArticleImpl;
+      @JsonKey(name: 'author', required: true) required final Author author,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      required final List<String> publishedLocales}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
@@ -730,6 +808,16 @@ abstract class _Article implements Article {
   @override
   @JsonKey(name: 'author', required: true)
   Author get author;
+
+  /// An array of available locales for the article.
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales;
+
+  /// An array of locales in which the article is published.
+  @override
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales;
 
   /// Create a copy of Article
   /// with the given fields replaced by the non-null parameter values.
@@ -1023,7 +1111,9 @@ mixin _$Collection {
   List<Author> get authors => throw _privateConstructorUsedError;
 
   /// An array of available locales for the collection.
-// required List<String> availableLocales,
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales => throw _privateConstructorUsedError;
+
   /// List of articles and collections (only returned when using the withStructure option)
   List<CollectionContent>? get structure => throw _privateConstructorUsedError;
 
@@ -1060,6 +1150,8 @@ abstract class $CollectionCopyWith<$Res> {
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
       @JsonKey(name: 'authors', required: true) List<Author> authors,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
       List<CollectionContent>? structure});
 
   $FBIconCopyWith<$Res>? get icon;
@@ -1096,6 +1188,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? externalUrl = freezed,
     Object? locale = null,
     Object? authors = null,
+    Object? availableLocales = null,
     Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1163,6 +1256,10 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
               as List<Author>,
+      availableLocales: null == availableLocales
+          ? _value.availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       structure: freezed == structure
           ? _value.structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -1210,6 +1307,8 @@ abstract class _$$CollectionImplCopyWith<$Res>
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
       @JsonKey(name: 'authors', required: true) List<Author> authors,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
       List<CollectionContent>? structure});
 
   @override
@@ -1245,6 +1344,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? externalUrl = freezed,
     Object? locale = null,
     Object? authors = null,
+    Object? availableLocales = null,
     Object? structure = freezed,
   }) {
     return _then(_$CollectionImpl(
@@ -1312,6 +1412,10 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
               as List<Author>,
+      availableLocales: null == availableLocales
+          ? _value._availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       structure: freezed == structure
           ? _value._structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -1345,8 +1449,11 @@ class _$CollectionImpl implements _Collection {
       @JsonKey(name: 'locale', required: true) required this.locale,
       @JsonKey(name: 'authors', required: true)
       required final List<Author> authors,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
       final List<CollectionContent>? structure})
       : _authors = authors,
+        _availableLocales = availableLocales,
         _structure = structure;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
@@ -1437,12 +1544,21 @@ class _$CollectionImpl implements _Collection {
   }
 
   /// An array of available locales for the collection.
-// required List<String> availableLocales,
+  final List<String> _availableLocales;
+
+  /// An array of available locales for the collection.
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales {
+    if (_availableLocales is EqualUnmodifiableListView)
+      return _availableLocales;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableLocales);
+  }
+
   /// List of articles and collections (only returned when using the withStructure option)
   final List<CollectionContent>? _structure;
 
-  /// An array of available locales for the collection.
-// required List<String> availableLocales,
   /// List of articles and collections (only returned when using the withStructure option)
   @override
   List<CollectionContent>? get structure {
@@ -1455,7 +1571,7 @@ class _$CollectionImpl implements _Collection {
 
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, authors: $authors, structure: $structure)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, authors: $authors, availableLocales: $availableLocales, structure: $structure)';
   }
 
   @override
@@ -1488,6 +1604,8 @@ class _$CollectionImpl implements _Collection {
             (identical(other.locale, locale) || other.locale == locale) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             const DeepCollectionEquality()
+                .equals(other._availableLocales, _availableLocales) &&
+            const DeepCollectionEquality()
                 .equals(other._structure, _structure));
   }
 
@@ -1511,6 +1629,7 @@ class _$CollectionImpl implements _Collection {
       externalUrl,
       locale,
       const DeepCollectionEquality().hash(_authors),
+      const DeepCollectionEquality().hash(_availableLocales),
       const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of Collection
@@ -1555,6 +1674,8 @@ abstract class _Collection implements Collection {
       @JsonKey(name: 'locale', required: true) required final String locale,
       @JsonKey(name: 'authors', required: true)
       required final List<Author> authors,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
       final List<CollectionContent>? structure}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
@@ -1638,7 +1759,10 @@ abstract class _Collection implements Collection {
   List<Author> get authors;
 
   /// An array of available locales for the collection.
-// required List<String> availableLocales,
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales;
+
   /// List of articles and collections (only returned when using the withStructure option)
   @override
   List<CollectionContent>? get structure;
