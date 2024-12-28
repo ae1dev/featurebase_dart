@@ -15,6 +15,9 @@ class HelpCenter with _$HelpCenter {
     /// The description of the help center.
     required String description,
 
+    /// The placeholder text for the search input.
+    required String searchPlaceholder,
+
     /// An array of navigation items for the help center.
     required List<NavItem> navItems,
 

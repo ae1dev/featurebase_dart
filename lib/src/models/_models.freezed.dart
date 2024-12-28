@@ -2188,6 +2188,9 @@ mixin _$HelpCenter {
   /// The description of the help center.
   String get description => throw _privateConstructorUsedError;
 
+  /// The placeholder text for the search input.
+  String get searchPlaceholder => throw _privateConstructorUsedError;
+
   /// An array of navigation items for the help center.
   List<NavItem> get navItems => throw _privateConstructorUsedError;
 
@@ -2236,6 +2239,7 @@ abstract class $HelpCenterCopyWith<$Res> {
       String displayName,
       String title,
       String description,
+      String searchPlaceholder,
       List<NavItem> navItems,
       bool isPublic,
       String organizationId,
@@ -2266,6 +2270,7 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
     Object? displayName = null,
     Object? title = null,
     Object? description = null,
+    Object? searchPlaceholder = null,
     Object? navItems = null,
     Object? isPublic = null,
     Object? organizationId = null,
@@ -2292,6 +2297,10 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchPlaceholder: null == searchPlaceholder
+          ? _value.searchPlaceholder
+          : searchPlaceholder // ignore: cast_nullable_to_non_nullable
               as String,
       navItems: null == navItems
           ? _value.navItems
@@ -2346,6 +2355,7 @@ abstract class _$$HelpCenterImplCopyWith<$Res>
       String displayName,
       String title,
       String description,
+      String searchPlaceholder,
       List<NavItem> navItems,
       bool isPublic,
       String organizationId,
@@ -2374,6 +2384,7 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? title = null,
     Object? description = null,
+    Object? searchPlaceholder = null,
     Object? navItems = null,
     Object? isPublic = null,
     Object? organizationId = null,
@@ -2400,6 +2411,10 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchPlaceholder: null == searchPlaceholder
+          ? _value.searchPlaceholder
+          : searchPlaceholder // ignore: cast_nullable_to_non_nullable
               as String,
       navItems: null == navItems
           ? _value._navItems
@@ -2449,6 +2464,7 @@ class _$HelpCenterImpl implements _HelpCenter {
       required this.displayName,
       required this.title,
       required this.description,
+      required this.searchPlaceholder,
       required final List<NavItem> navItems,
       required this.isPublic,
       required this.organizationId,
@@ -2480,6 +2496,10 @@ class _$HelpCenterImpl implements _HelpCenter {
   /// The description of the help center.
   @override
   final String description;
+
+  /// The placeholder text for the search input.
+  @override
+  final String searchPlaceholder;
 
   /// An array of navigation items for the help center.
   final List<NavItem> _navItems;
@@ -2543,7 +2563,7 @@ class _$HelpCenterImpl implements _HelpCenter {
 
   @override
   String toString() {
-    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, structure: $structure)';
+    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, searchPlaceholder: $searchPlaceholder, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, structure: $structure)';
   }
 
   @override
@@ -2558,6 +2578,8 @@ class _$HelpCenterImpl implements _HelpCenter {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.searchPlaceholder, searchPlaceholder) ||
+                other.searchPlaceholder == searchPlaceholder) &&
             const DeepCollectionEquality().equals(other._navItems, _navItems) &&
             (identical(other.isPublic, isPublic) ||
                 other.isPublic == isPublic) &&
@@ -2584,6 +2606,7 @@ class _$HelpCenterImpl implements _HelpCenter {
       displayName,
       title,
       description,
+      searchPlaceholder,
       const DeepCollectionEquality().hash(_navItems),
       isPublic,
       organizationId,
@@ -2616,6 +2639,7 @@ abstract class _HelpCenter implements HelpCenter {
       required final String displayName,
       required final String title,
       required final String description,
+      required final String searchPlaceholder,
       required final List<NavItem> navItems,
       required final bool isPublic,
       required final String organizationId,
@@ -2644,6 +2668,10 @@ abstract class _HelpCenter implements HelpCenter {
   /// The description of the help center.
   @override
   String get description;
+
+  /// The placeholder text for the search input.
+  @override
+  String get searchPlaceholder;
 
   /// An array of navigation items for the help center.
   @override

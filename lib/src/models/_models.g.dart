@@ -170,6 +170,7 @@ _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
       displayName: json['displayName'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
+      searchPlaceholder: json['searchPlaceholder'] as String,
       navItems: (json['navItems'] as List<dynamic>)
           .map((e) => NavItem.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -193,6 +194,7 @@ Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
       'displayName': instance.displayName,
       'title': instance.title,
       'description': instance.description,
+      'searchPlaceholder': instance.searchPlaceholder,
       'navItems': instance.navItems,
       'isPublic': instance.isPublic,
       'organizationId': instance.organizationId,
