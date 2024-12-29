@@ -20,6 +20,9 @@ abstract class FeaturebaseApiBase {
   late HelpCenterEnd _helpCenter;
   HelpCenterEnd get helpCenter => _helpCenter;
 
+  late ChangelogEnd _changelog;
+  ChangelogEnd get changelog => _changelog;
+
   FeaturebaseApiBase.from({
     String baseUrl = "https://help.featurebase.app",
   }) {
@@ -27,5 +30,6 @@ abstract class FeaturebaseApiBase {
     _dio.options.baseUrl = '$_baseUrl/api/v1';
 
     _helpCenter = HelpCenterEnd(this);
+    _changelog = ChangelogEnd(this);
   }
 }

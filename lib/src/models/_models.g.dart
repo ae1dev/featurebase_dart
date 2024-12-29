@@ -240,3 +240,77 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
       'url': instance.url,
       'icon': instance.icon,
     };
+
+_$ChangelogImpl _$$ChangelogImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'id',
+      'title',
+      'content',
+      'organization',
+      'locale',
+      'changelogCategories',
+      'slug',
+      'availableLocales',
+      'publishedLocales'
+    ],
+  );
+  return _$ChangelogImpl(
+    id: json['id'] as String,
+    title: json['title'] as String,
+    content: json['content'] as String,
+    organization: json['organization'] as String,
+    state: json['state'] as String? ?? 'live',
+    locale: json['locale'] as String,
+    changelogCategories: (json['changelogCategories'] as List<dynamic>)
+        .map((e) => ChangelogCategory.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    date: DateTime.parse(json['date'] as String),
+    slug: json['slug'] as String,
+    isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool? ?? false,
+    isPublished: json['isPublished'] as bool? ?? true,
+    availableLocales: (json['availableLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+    publishedLocales: (json['publishedLocales'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$$ChangelogImplToJson(_$ChangelogImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'content': instance.content,
+      'organization': instance.organization,
+      'state': instance.state,
+      'locale': instance.locale,
+      'changelogCategories': instance.changelogCategories,
+      'date': instance.date.toIso8601String(),
+      'slug': instance.slug,
+      'isDraftDiffersFromLive': instance.isDraftDiffersFromLive,
+      'isPublished': instance.isPublished,
+      'availableLocales': instance.availableLocales,
+      'publishedLocales': instance.publishedLocales,
+    };
+
+_$ChangelogCategoryImpl _$$ChangelogCategoryImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['name', 'color'],
+  );
+  return _$ChangelogCategoryImpl(
+    name: json['name'] as String,
+    type: json['color'] as String,
+  );
+}
+
+Map<String, dynamic> _$$ChangelogCategoryImplToJson(
+        _$ChangelogCategoryImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'color': instance.type,
+    };

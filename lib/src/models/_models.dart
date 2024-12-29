@@ -10,3 +10,4 @@ part 'collection.dart';
 part 'help_center.dart';
 part 'icon.dart';
 part 'nav_item.dart';
+part 'changelog.dart';

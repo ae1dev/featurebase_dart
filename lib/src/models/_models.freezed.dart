@@ -3153,3 +3153,769 @@ abstract class _NavItem implements NavItem {
   _$$NavItemImplCopyWith<_$NavItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Changelog _$ChangelogFromJson(Map<String, dynamic> json) {
+  return _Changelog.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Changelog {
+  /// The unique ID.
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The title of the changelog.
+  @JsonKey(name: 'title', required: true)
+  String get title => throw _privateConstructorUsedError;
+
+  /// The content of the changelog.
+  ///
+  /// In HTML format.
+  @JsonKey(name: 'content', required: true)
+  String get content => throw _privateConstructorUsedError;
+
+  /// The ID of the organization that the changelog belongs to.
+  @JsonKey(name: 'organization', required: true)
+  String get organization => throw _privateConstructorUsedError;
+
+  /// The state of the changelog, either "live" or "draft".
+  @JsonKey(name: 'state', defaultValue: 'live')
+  String get state => throw _privateConstructorUsedError;
+
+  /// The locale of the changelog.
+  @JsonKey(name: 'locale', required: true)
+  String get locale => throw _privateConstructorUsedError;
+
+  /// The categories of the changelog.
+  @JsonKey(name: 'changelogCategories', required: true)
+  List<ChangelogCategory> get changelogCategories =>
+      throw _privateConstructorUsedError;
+
+  /// The date when the Changelog was created.
+  DateTime get date => throw _privateConstructorUsedError;
+
+  /// The URL-friendly slug of the changelog.
+  @JsonKey(name: 'slug', required: true)
+  String get slug => throw _privateConstructorUsedError;
+
+  /// Indicates whether the draft version differs from the live published version.
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+  bool get isDraftDiffersFromLive => throw _privateConstructorUsedError;
+
+  /// Indicates whether the changelog is published.
+  @JsonKey(name: 'isPublished', defaultValue: true)
+  bool get isPublished => throw _privateConstructorUsedError;
+
+  /// An array of available locales for the changelog.
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales => throw _privateConstructorUsedError;
+
+  /// An array of locales in which the changelog is published.
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales => throw _privateConstructorUsedError;
+
+  /// Serializes this Changelog to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Changelog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ChangelogCopyWith<Changelog> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChangelogCopyWith<$Res> {
+  factory $ChangelogCopyWith(Changelog value, $Res Function(Changelog) then) =
+      _$ChangelogCopyWithImpl<$Res, Changelog>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'organization', required: true) String organization,
+      @JsonKey(name: 'state', defaultValue: 'live') String state,
+      @JsonKey(name: 'locale', required: true) String locale,
+      @JsonKey(name: 'changelogCategories', required: true)
+      List<ChangelogCategory> changelogCategories,
+      DateTime date,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+      bool isDraftDiffersFromLive,
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      List<String> publishedLocales});
+}
+
+/// @nodoc
+class _$ChangelogCopyWithImpl<$Res, $Val extends Changelog>
+    implements $ChangelogCopyWith<$Res> {
+  _$ChangelogCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Changelog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? organization = null,
+    Object? state = null,
+    Object? locale = null,
+    Object? changelogCategories = null,
+    Object? date = null,
+    Object? slug = null,
+    Object? isDraftDiffersFromLive = null,
+    Object? isPublished = null,
+    Object? availableLocales = null,
+    Object? publishedLocales = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      organization: null == organization
+          ? _value.organization
+          : organization // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
+      changelogCategories: null == changelogCategories
+          ? _value.changelogCategories
+          : changelogCategories // ignore: cast_nullable_to_non_nullable
+              as List<ChangelogCategory>,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDraftDiffersFromLive: null == isDraftDiffersFromLive
+          ? _value.isDraftDiffersFromLive
+          : isDraftDiffersFromLive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPublished: null == isPublished
+          ? _value.isPublished
+          : isPublished // ignore: cast_nullable_to_non_nullable
+              as bool,
+      availableLocales: null == availableLocales
+          ? _value.availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      publishedLocales: null == publishedLocales
+          ? _value.publishedLocales
+          : publishedLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ChangelogImplCopyWith<$Res>
+    implements $ChangelogCopyWith<$Res> {
+  factory _$$ChangelogImplCopyWith(
+          _$ChangelogImpl value, $Res Function(_$ChangelogImpl) then) =
+      __$$ChangelogImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'organization', required: true) String organization,
+      @JsonKey(name: 'state', defaultValue: 'live') String state,
+      @JsonKey(name: 'locale', required: true) String locale,
+      @JsonKey(name: 'changelogCategories', required: true)
+      List<ChangelogCategory> changelogCategories,
+      DateTime date,
+      @JsonKey(name: 'slug', required: true) String slug,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+      bool isDraftDiffersFromLive,
+      @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
+      @JsonKey(name: 'availableLocales', required: true)
+      List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      List<String> publishedLocales});
+}
+
+/// @nodoc
+class __$$ChangelogImplCopyWithImpl<$Res>
+    extends _$ChangelogCopyWithImpl<$Res, _$ChangelogImpl>
+    implements _$$ChangelogImplCopyWith<$Res> {
+  __$$ChangelogImplCopyWithImpl(
+      _$ChangelogImpl _value, $Res Function(_$ChangelogImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Changelog
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? organization = null,
+    Object? state = null,
+    Object? locale = null,
+    Object? changelogCategories = null,
+    Object? date = null,
+    Object? slug = null,
+    Object? isDraftDiffersFromLive = null,
+    Object? isPublished = null,
+    Object? availableLocales = null,
+    Object? publishedLocales = null,
+  }) {
+    return _then(_$ChangelogImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      organization: null == organization
+          ? _value.organization
+          : organization // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
+      changelogCategories: null == changelogCategories
+          ? _value._changelogCategories
+          : changelogCategories // ignore: cast_nullable_to_non_nullable
+              as List<ChangelogCategory>,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDraftDiffersFromLive: null == isDraftDiffersFromLive
+          ? _value.isDraftDiffersFromLive
+          : isDraftDiffersFromLive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPublished: null == isPublished
+          ? _value.isPublished
+          : isPublished // ignore: cast_nullable_to_non_nullable
+              as bool,
+      availableLocales: null == availableLocales
+          ? _value._availableLocales
+          : availableLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      publishedLocales: null == publishedLocales
+          ? _value._publishedLocales
+          : publishedLocales // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ChangelogImpl implements _Changelog {
+  const _$ChangelogImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'title', required: true) required this.title,
+      @JsonKey(name: 'content', required: true) required this.content,
+      @JsonKey(name: 'organization', required: true) required this.organization,
+      @JsonKey(name: 'state', defaultValue: 'live') required this.state,
+      @JsonKey(name: 'locale', required: true) required this.locale,
+      @JsonKey(name: 'changelogCategories', required: true)
+      required final List<ChangelogCategory> changelogCategories,
+      required this.date,
+      @JsonKey(name: 'slug', required: true) required this.slug,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+      required this.isDraftDiffersFromLive,
+      @JsonKey(name: 'isPublished', defaultValue: true)
+      required this.isPublished,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      required final List<String> publishedLocales})
+      : _changelogCategories = changelogCategories,
+        _availableLocales = availableLocales,
+        _publishedLocales = publishedLocales;
+
+  factory _$ChangelogImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChangelogImplFromJson(json);
+
+  /// The unique ID.
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The title of the changelog.
+  @override
+  @JsonKey(name: 'title', required: true)
+  final String title;
+
+  /// The content of the changelog.
+  ///
+  /// In HTML format.
+  @override
+  @JsonKey(name: 'content', required: true)
+  final String content;
+
+  /// The ID of the organization that the changelog belongs to.
+  @override
+  @JsonKey(name: 'organization', required: true)
+  final String organization;
+
+  /// The state of the changelog, either "live" or "draft".
+  @override
+  @JsonKey(name: 'state', defaultValue: 'live')
+  final String state;
+
+  /// The locale of the changelog.
+  @override
+  @JsonKey(name: 'locale', required: true)
+  final String locale;
+
+  /// The categories of the changelog.
+  final List<ChangelogCategory> _changelogCategories;
+
+  /// The categories of the changelog.
+  @override
+  @JsonKey(name: 'changelogCategories', required: true)
+  List<ChangelogCategory> get changelogCategories {
+    if (_changelogCategories is EqualUnmodifiableListView)
+      return _changelogCategories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_changelogCategories);
+  }
+
+  /// The date when the Changelog was created.
+  @override
+  final DateTime date;
+
+  /// The URL-friendly slug of the changelog.
+  @override
+  @JsonKey(name: 'slug', required: true)
+  final String slug;
+
+  /// Indicates whether the draft version differs from the live published version.
+  @override
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+  final bool isDraftDiffersFromLive;
+
+  /// Indicates whether the changelog is published.
+  @override
+  @JsonKey(name: 'isPublished', defaultValue: true)
+  final bool isPublished;
+
+  /// An array of available locales for the changelog.
+  final List<String> _availableLocales;
+
+  /// An array of available locales for the changelog.
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales {
+    if (_availableLocales is EqualUnmodifiableListView)
+      return _availableLocales;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableLocales);
+  }
+
+  /// An array of locales in which the changelog is published.
+  final List<String> _publishedLocales;
+
+  /// An array of locales in which the changelog is published.
+  @override
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales {
+    if (_publishedLocales is EqualUnmodifiableListView)
+      return _publishedLocales;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_publishedLocales);
+  }
+
+  @override
+  String toString() {
+    return 'Changelog(id: $id, title: $title, content: $content, organization: $organization, state: $state, locale: $locale, changelogCategories: $changelogCategories, date: $date, slug: $slug, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, availableLocales: $availableLocales, publishedLocales: $publishedLocales)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangelogImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.organization, organization) ||
+                other.organization == organization) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.locale, locale) || other.locale == locale) &&
+            const DeepCollectionEquality()
+                .equals(other._changelogCategories, _changelogCategories) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
+            (identical(other.isDraftDiffersFromLive, isDraftDiffersFromLive) ||
+                other.isDraftDiffersFromLive == isDraftDiffersFromLive) &&
+            (identical(other.isPublished, isPublished) ||
+                other.isPublished == isPublished) &&
+            const DeepCollectionEquality()
+                .equals(other._availableLocales, _availableLocales) &&
+            const DeepCollectionEquality()
+                .equals(other._publishedLocales, _publishedLocales));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      content,
+      organization,
+      state,
+      locale,
+      const DeepCollectionEquality().hash(_changelogCategories),
+      date,
+      slug,
+      isDraftDiffersFromLive,
+      isPublished,
+      const DeepCollectionEquality().hash(_availableLocales),
+      const DeepCollectionEquality().hash(_publishedLocales));
+
+  /// Create a copy of Changelog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangelogImplCopyWith<_$ChangelogImpl> get copyWith =>
+      __$$ChangelogImplCopyWithImpl<_$ChangelogImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChangelogImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Changelog implements Changelog {
+  const factory _Changelog(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'title', required: true) required final String title,
+      @JsonKey(name: 'content', required: true) required final String content,
+      @JsonKey(name: 'organization', required: true)
+      required final String organization,
+      @JsonKey(name: 'state', defaultValue: 'live') required final String state,
+      @JsonKey(name: 'locale', required: true) required final String locale,
+      @JsonKey(name: 'changelogCategories', required: true)
+      required final List<ChangelogCategory> changelogCategories,
+      required final DateTime date,
+      @JsonKey(name: 'slug', required: true) required final String slug,
+      @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+      required final bool isDraftDiffersFromLive,
+      @JsonKey(name: 'isPublished', defaultValue: true)
+      required final bool isPublished,
+      @JsonKey(name: 'availableLocales', required: true)
+      required final List<String> availableLocales,
+      @JsonKey(name: 'publishedLocales', required: true)
+      required final List<String> publishedLocales}) = _$ChangelogImpl;
+
+  factory _Changelog.fromJson(Map<String, dynamic> json) =
+      _$ChangelogImpl.fromJson;
+
+  /// The unique ID.
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The title of the changelog.
+  @override
+  @JsonKey(name: 'title', required: true)
+  String get title;
+
+  /// The content of the changelog.
+  ///
+  /// In HTML format.
+  @override
+  @JsonKey(name: 'content', required: true)
+  String get content;
+
+  /// The ID of the organization that the changelog belongs to.
+  @override
+  @JsonKey(name: 'organization', required: true)
+  String get organization;
+
+  /// The state of the changelog, either "live" or "draft".
+  @override
+  @JsonKey(name: 'state', defaultValue: 'live')
+  String get state;
+
+  /// The locale of the changelog.
+  @override
+  @JsonKey(name: 'locale', required: true)
+  String get locale;
+
+  /// The categories of the changelog.
+  @override
+  @JsonKey(name: 'changelogCategories', required: true)
+  List<ChangelogCategory> get changelogCategories;
+
+  /// The date when the Changelog was created.
+  @override
+  DateTime get date;
+
+  /// The URL-friendly slug of the changelog.
+  @override
+  @JsonKey(name: 'slug', required: true)
+  String get slug;
+
+  /// Indicates whether the draft version differs from the live published version.
+  @override
+  @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
+  bool get isDraftDiffersFromLive;
+
+  /// Indicates whether the changelog is published.
+  @override
+  @JsonKey(name: 'isPublished', defaultValue: true)
+  bool get isPublished;
+
+  /// An array of available locales for the changelog.
+  @override
+  @JsonKey(name: 'availableLocales', required: true)
+  List<String> get availableLocales;
+
+  /// An array of locales in which the changelog is published.
+  @override
+  @JsonKey(name: 'publishedLocales', required: true)
+  List<String> get publishedLocales;
+
+  /// Create a copy of Changelog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangelogImplCopyWith<_$ChangelogImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ChangelogCategory _$ChangelogCategoryFromJson(Map<String, dynamic> json) {
+  return _ChangelogCategory.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ChangelogCategory {
+  /// Changelog category name
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// Changelog category color
+  @JsonKey(name: 'color', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this ChangelogCategory to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ChangelogCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ChangelogCategoryCopyWith<ChangelogCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChangelogCategoryCopyWith<$Res> {
+  factory $ChangelogCategoryCopyWith(
+          ChangelogCategory value, $Res Function(ChangelogCategory) then) =
+      _$ChangelogCategoryCopyWithImpl<$Res, ChangelogCategory>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'color', required: true) String type});
+}
+
+/// @nodoc
+class _$ChangelogCategoryCopyWithImpl<$Res, $Val extends ChangelogCategory>
+    implements $ChangelogCategoryCopyWith<$Res> {
+  _$ChangelogCategoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ChangelogCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ChangelogCategoryImplCopyWith<$Res>
+    implements $ChangelogCategoryCopyWith<$Res> {
+  factory _$$ChangelogCategoryImplCopyWith(_$ChangelogCategoryImpl value,
+          $Res Function(_$ChangelogCategoryImpl) then) =
+      __$$ChangelogCategoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'color', required: true) String type});
+}
+
+/// @nodoc
+class __$$ChangelogCategoryImplCopyWithImpl<$Res>
+    extends _$ChangelogCategoryCopyWithImpl<$Res, _$ChangelogCategoryImpl>
+    implements _$$ChangelogCategoryImplCopyWith<$Res> {
+  __$$ChangelogCategoryImplCopyWithImpl(_$ChangelogCategoryImpl _value,
+      $Res Function(_$ChangelogCategoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChangelogCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? type = null,
+  }) {
+    return _then(_$ChangelogCategoryImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ChangelogCategoryImpl implements _ChangelogCategory {
+  const _$ChangelogCategoryImpl(
+      {@JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'color', required: true) required this.type});
+
+  factory _$ChangelogCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChangelogCategoryImplFromJson(json);
+
+  /// Changelog category name
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// Changelog category color
+  @override
+  @JsonKey(name: 'color', required: true)
+  final String type;
+
+  @override
+  String toString() {
+    return 'ChangelogCategory(name: $name, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangelogCategoryImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, type);
+
+  /// Create a copy of ChangelogCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangelogCategoryImplCopyWith<_$ChangelogCategoryImpl> get copyWith =>
+      __$$ChangelogCategoryImplCopyWithImpl<_$ChangelogCategoryImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChangelogCategoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ChangelogCategory implements ChangelogCategory {
+  const factory _ChangelogCategory(
+          {@JsonKey(name: 'name', required: true) required final String name,
+          @JsonKey(name: 'color', required: true) required final String type}) =
+      _$ChangelogCategoryImpl;
+
+  factory _ChangelogCategory.fromJson(Map<String, dynamic> json) =
+      _$ChangelogCategoryImpl.fromJson;
+
+  /// Changelog category name
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// Changelog category color
+  @override
+  @JsonKey(name: 'color', required: true)
+  String get type;
+
+  /// Create a copy of ChangelogCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangelogCategoryImplCopyWith<_$ChangelogCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
