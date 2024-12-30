@@ -7,14 +7,18 @@ class ChangelogEnd extends EndpointBase {
   ChangelogEnd(super.api);
 
   /// Get a list of changelogs
-  ///
-  /// TODO: Add pagination
-  Future<List<Changelog>> get(String id, {String locale = 'en'}) async {
+  Future<ResultsPagination<Changelog>> get({
+    String locale = 'en',
+    int page = 1,
+  }) async {
     final Map<String, Object?> map = (await dio.get(_path, queryParameters: {
       "locale": locale,
+      "page": page,
     }))
         .data;
-    var changelogs = map['results'] as Iterable<dynamic>;
-    return (changelogs.map((m) => Changelog.fromJson(m)).toList());
+    return ResultsPagination<Changelog>.fromJson(
+      map,
+      (json) => Changelog.fromJson(json as Map<String, dynamic>),
+    );
   }
 }

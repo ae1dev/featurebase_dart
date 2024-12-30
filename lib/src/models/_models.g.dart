@@ -314,3 +314,26 @@ Map<String, dynamic> _$$ChangelogCategoryImplToJson(
       'name': instance.name,
       'color': instance.type,
     };
+
+ResultsPagination<T> _$ResultsPaginationFromJson<T>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'results',
+      'page',
+      'limit',
+      'totalPages',
+      'totalResults'
+    ],
+  );
+  return ResultsPagination<T>(
+    (json['results'] as List<dynamic>).map(fromJsonT).toList(),
+    (json['page'] as num).toInt(),
+    (json['limit'] as num).toInt(),
+    (json['totalPages'] as num).toInt(),
+    (json['totalResults'] as num).toInt(),
+  );
+}
