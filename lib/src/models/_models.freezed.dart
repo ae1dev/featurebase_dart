@@ -3174,6 +3174,10 @@ mixin _$Changelog {
   @JsonKey(name: 'content', required: true)
   String get content => throw _privateConstructorUsedError;
 
+  /// The featured image of the changelog.
+  @JsonKey(name: 'featuredImage')
+  String? get featuredImage => throw _privateConstructorUsedError;
+
   /// The ID of the organization that the changelog belongs to.
   @JsonKey(name: 'organization', required: true)
   String get organization => throw _privateConstructorUsedError;
@@ -3233,6 +3237,7 @@ abstract class $ChangelogCopyWith<$Res> {
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'featuredImage') String? featuredImage,
       @JsonKey(name: 'organization', required: true) String organization,
       @JsonKey(name: 'state', defaultValue: 'live') String state,
       @JsonKey(name: 'locale', required: true) String locale,
@@ -3267,6 +3272,7 @@ class _$ChangelogCopyWithImpl<$Res, $Val extends Changelog>
     Object? id = null,
     Object? title = null,
     Object? content = null,
+    Object? featuredImage = freezed,
     Object? organization = null,
     Object? state = null,
     Object? locale = null,
@@ -3291,6 +3297,10 @@ class _$ChangelogCopyWithImpl<$Res, $Val extends Changelog>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      featuredImage: freezed == featuredImage
+          ? _value.featuredImage
+          : featuredImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       organization: null == organization
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
@@ -3347,6 +3357,7 @@ abstract class _$$ChangelogImplCopyWith<$Res>
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'featuredImage') String? featuredImage,
       @JsonKey(name: 'organization', required: true) String organization,
       @JsonKey(name: 'state', defaultValue: 'live') String state,
       @JsonKey(name: 'locale', required: true) String locale,
@@ -3379,6 +3390,7 @@ class __$$ChangelogImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? content = null,
+    Object? featuredImage = freezed,
     Object? organization = null,
     Object? state = null,
     Object? locale = null,
@@ -3403,6 +3415,10 @@ class __$$ChangelogImplCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      featuredImage: freezed == featuredImage
+          ? _value.featuredImage
+          : featuredImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       organization: null == organization
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
@@ -3454,6 +3470,7 @@ class _$ChangelogImpl implements _Changelog {
       {@JsonKey(name: 'id', required: true) required this.id,
       @JsonKey(name: 'title', required: true) required this.title,
       @JsonKey(name: 'content', required: true) required this.content,
+      @JsonKey(name: 'featuredImage') this.featuredImage,
       @JsonKey(name: 'organization', required: true) required this.organization,
       @JsonKey(name: 'state', defaultValue: 'live') required this.state,
       @JsonKey(name: 'locale', required: true) required this.locale,
@@ -3492,6 +3509,11 @@ class _$ChangelogImpl implements _Changelog {
   @override
   @JsonKey(name: 'content', required: true)
   final String content;
+
+  /// The featured image of the changelog.
+  @override
+  @JsonKey(name: 'featuredImage')
+  final String? featuredImage;
 
   /// The ID of the organization that the changelog belongs to.
   @override
@@ -3568,7 +3590,7 @@ class _$ChangelogImpl implements _Changelog {
 
   @override
   String toString() {
-    return 'Changelog(id: $id, title: $title, content: $content, organization: $organization, state: $state, locale: $locale, changelogCategories: $changelogCategories, date: $date, slug: $slug, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, availableLocales: $availableLocales, publishedLocales: $publishedLocales)';
+    return 'Changelog(id: $id, title: $title, content: $content, featuredImage: $featuredImage, organization: $organization, state: $state, locale: $locale, changelogCategories: $changelogCategories, date: $date, slug: $slug, isDraftDiffersFromLive: $isDraftDiffersFromLive, isPublished: $isPublished, availableLocales: $availableLocales, publishedLocales: $publishedLocales)';
   }
 
   @override
@@ -3579,6 +3601,8 @@ class _$ChangelogImpl implements _Changelog {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
+            (identical(other.featuredImage, featuredImage) ||
+                other.featuredImage == featuredImage) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
             (identical(other.state, state) || other.state == state) &&
@@ -3604,6 +3628,7 @@ class _$ChangelogImpl implements _Changelog {
       id,
       title,
       content,
+      featuredImage,
       organization,
       state,
       locale,
@@ -3636,6 +3661,7 @@ abstract class _Changelog implements Changelog {
       {@JsonKey(name: 'id', required: true) required final String id,
       @JsonKey(name: 'title', required: true) required final String title,
       @JsonKey(name: 'content', required: true) required final String content,
+      @JsonKey(name: 'featuredImage') final String? featuredImage,
       @JsonKey(name: 'organization', required: true)
       required final String organization,
       @JsonKey(name: 'state', defaultValue: 'live') required final String state,
@@ -3672,6 +3698,11 @@ abstract class _Changelog implements Changelog {
   @override
   @JsonKey(name: 'content', required: true)
   String get content;
+
+  /// The featured image of the changelog.
+  @override
+  @JsonKey(name: 'featuredImage')
+  String? get featuredImage;
 
   /// The ID of the organization that the changelog belongs to.
   @override

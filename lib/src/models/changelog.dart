@@ -14,6 +14,9 @@ class Changelog with _$Changelog {
     /// In HTML format.
     @JsonKey(name: 'content', required: true) required String content,
 
+    /// The featured image of the changelog.
+    @JsonKey(name: 'featuredImage') String? featuredImage,
+
     /// The ID of the organization that the changelog belongs to.
     @JsonKey(name: 'organization', required: true) required String organization,
 
