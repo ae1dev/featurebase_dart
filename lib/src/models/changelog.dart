@@ -63,7 +63,7 @@ class ChangelogCategory with _$ChangelogCategory {
     @JsonKey(name: 'name', required: true) required String name,
 
     /// Changelog category color
-    @JsonKey(name: 'color', required: true) required String type,
+    @JsonKey(name: 'color', required: true) required String color,
   }) = _ChangelogCategory;
 
   factory ChangelogCategory.fromJson(Map<String, Object?> json) =>

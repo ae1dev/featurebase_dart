@@ -306,7 +306,7 @@ _$ChangelogCategoryImpl _$$ChangelogCategoryImplFromJson(
   );
   return _$ChangelogCategoryImpl(
     name: json['name'] as String,
-    type: json['color'] as String,
+    color: json['color'] as String,
   );
 }
 
@@ -314,7 +314,7 @@ Map<String, dynamic> _$$ChangelogCategoryImplToJson(
         _$ChangelogCategoryImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'color': instance.type,
+      'color': instance.color,
     };
 
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(

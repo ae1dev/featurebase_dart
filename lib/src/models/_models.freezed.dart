@@ -3773,7 +3773,7 @@ mixin _$ChangelogCategory {
 
   /// Changelog category color
   @JsonKey(name: 'color', required: true)
-  String get type => throw _privateConstructorUsedError;
+  String get color => throw _privateConstructorUsedError;
 
   /// Serializes this ChangelogCategory to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -3793,7 +3793,7 @@ abstract class $ChangelogCategoryCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'color', required: true) String type});
+      @JsonKey(name: 'color', required: true) String color});
 }
 
 /// @nodoc
@@ -3812,16 +3812,16 @@ class _$ChangelogCategoryCopyWithImpl<$Res, $Val extends ChangelogCategory>
   @override
   $Res call({
     Object? name = null,
-    Object? type = null,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -3837,7 +3837,7 @@ abstract class _$$ChangelogCategoryImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'color', required: true) String type});
+      @JsonKey(name: 'color', required: true) String color});
 }
 
 /// @nodoc
@@ -3854,16 +3854,16 @@ class __$$ChangelogCategoryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? type = null,
+    Object? color = null,
   }) {
     return _then(_$ChangelogCategoryImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -3874,7 +3874,7 @@ class __$$ChangelogCategoryImplCopyWithImpl<$Res>
 class _$ChangelogCategoryImpl implements _ChangelogCategory {
   const _$ChangelogCategoryImpl(
       {@JsonKey(name: 'name', required: true) required this.name,
-      @JsonKey(name: 'color', required: true) required this.type});
+      @JsonKey(name: 'color', required: true) required this.color});
 
   factory _$ChangelogCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$ChangelogCategoryImplFromJson(json);
@@ -3887,11 +3887,11 @@ class _$ChangelogCategoryImpl implements _ChangelogCategory {
   /// Changelog category color
   @override
   @JsonKey(name: 'color', required: true)
-  final String type;
+  final String color;
 
   @override
   String toString() {
-    return 'ChangelogCategory(name: $name, type: $type)';
+    return 'ChangelogCategory(name: $name, color: $color)';
   }
 
   @override
@@ -3900,12 +3900,12 @@ class _$ChangelogCategoryImpl implements _ChangelogCategory {
         (other.runtimeType == runtimeType &&
             other is _$ChangelogCategoryImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, type);
+  int get hashCode => Object.hash(runtimeType, name, color);
 
   /// Create a copy of ChangelogCategory
   /// with the given fields replaced by the non-null parameter values.
@@ -3926,9 +3926,9 @@ class _$ChangelogCategoryImpl implements _ChangelogCategory {
 
 abstract class _ChangelogCategory implements ChangelogCategory {
   const factory _ChangelogCategory(
-          {@JsonKey(name: 'name', required: true) required final String name,
-          @JsonKey(name: 'color', required: true) required final String type}) =
-      _$ChangelogCategoryImpl;
+      {@JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'color', required: true)
+      required final String color}) = _$ChangelogCategoryImpl;
 
   factory _ChangelogCategory.fromJson(Map<String, dynamic> json) =
       _$ChangelogCategoryImpl.fromJson;
@@ -3941,7 +3941,7 @@ abstract class _ChangelogCategory implements ChangelogCategory {
   /// Changelog category color
   @override
   @JsonKey(name: 'color', required: true)
-  String get type;
+  String get color;
 
   /// Create a copy of ChangelogCategory
   /// with the given fields replaced by the non-null parameter values.
