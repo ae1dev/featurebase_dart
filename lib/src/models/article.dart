@@ -4,14 +4,10 @@ part of featurebase_dart.models;
 class Article with _$Article {
   const factory Article({
     /// The article's unique ID.
-    ///
-    /// TODO: Check why sometimes articleId can be null
-    @JsonKey(name: 'articleId', defaultValue: '') required String articleId,
+    @JsonKey(name: 'articleId', required: true) required String articleId,
 
     /// The title of the article.
-    ///
-    /// TODO: Check why sometimes title can be null
-    @JsonKey(name: 'title', defaultValue: '') required String title,
+    @JsonKey(name: 'title', required: true) required String title,
 
     /// A brief description of the article.
     @JsonKey(name: 'description', required: true) required String description,

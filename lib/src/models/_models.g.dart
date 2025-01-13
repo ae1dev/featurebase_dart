@@ -10,6 +10,8 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const [
+      'articleId',
+      'title',
       'description',
       'helpCenterId',
       'organizationId',
@@ -22,8 +24,8 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     ],
   );
   return _$ArticleImpl(
-    articleId: json['articleId'] as String? ?? '',
-    title: json['title'] as String? ?? '',
+    articleId: json['articleId'] as String,
+    title: json['title'] as String,
     description: json['description'] as String,
     body: json['body'] as String?,
     icon: json['icon'] == null
@@ -136,9 +138,6 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     availableLocales: (json['availableLocales'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),
-    structure: (json['structure'] as List<dynamic>?)
-        ?.map((e) => CollectionContent.fromJson(e as Map<String, dynamic>))
-        .toList(),
   );
 }
 
@@ -161,7 +160,6 @@ Map<String, dynamic> _$$CollectionImplToJson(_$CollectionImpl instance) =>
       'locale': instance.locale,
       'authors': instance.authors,
       'availableLocales': instance.availableLocales,
-      'structure': instance.structure,
     };
 
 _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
@@ -183,9 +181,6 @@ _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
-      structure: (json['structure'] as List<dynamic>?)
-          ?.map((e) => Collection.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
@@ -203,7 +198,6 @@ Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
       'availableLocales': instance.availableLocales,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
-      'structure': instance.structure,
     };
 
 _$FBIconImpl _$$FBIconImplFromJson(Map<String, dynamic> json) {

@@ -57,9 +57,6 @@ class Collection with _$Collection {
     /// An array of available locales for the collection.
     @JsonKey(name: 'availableLocales', required: true)
     required List<String> availableLocales,
-
-    /// List of articles and collections (only returned when using the withStructure option)
-    List<CollectionContent>? structure,
   }) = _Collection;
 
   factory Collection.fromJson(Map<String, Object?> json) =>

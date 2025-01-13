@@ -21,15 +21,11 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Article {
   /// The article's unique ID.
-  ///
-  /// TODO: Check why sometimes articleId can be null
-  @JsonKey(name: 'articleId', defaultValue: '')
+  @JsonKey(name: 'articleId', required: true)
   String get articleId => throw _privateConstructorUsedError;
 
   /// The title of the article.
-  ///
-  /// TODO: Check why sometimes title can be null
-  @JsonKey(name: 'title', defaultValue: '')
+  @JsonKey(name: 'title', required: true)
   String get title => throw _privateConstructorUsedError;
 
   /// A brief description of the article.
@@ -116,8 +112,8 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'articleId', defaultValue: '') String articleId,
-      @JsonKey(name: 'title', defaultValue: '') String title,
+      {@JsonKey(name: 'articleId', required: true) String articleId,
+      @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'description', required: true) String description,
       String? body,
       @JsonKey(name: 'icon') FBIcon? icon,
@@ -297,8 +293,8 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'articleId', defaultValue: '') String articleId,
-      @JsonKey(name: 'title', defaultValue: '') String title,
+      {@JsonKey(name: 'articleId', required: true) String articleId,
+      @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'description', required: true) String description,
       String? body,
       @JsonKey(name: 'icon') FBIcon? icon,
@@ -450,8 +446,8 @@ class __$$ArticleImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArticleImpl implements _Article {
   const _$ArticleImpl(
-      {@JsonKey(name: 'articleId', defaultValue: '') required this.articleId,
-      @JsonKey(name: 'title', defaultValue: '') required this.title,
+      {@JsonKey(name: 'articleId', required: true) required this.articleId,
+      @JsonKey(name: 'title', required: true) required this.title,
       @JsonKey(name: 'description', required: true) required this.description,
       this.body,
       @JsonKey(name: 'icon') required this.icon,
@@ -483,17 +479,13 @@ class _$ArticleImpl implements _Article {
       _$$ArticleImplFromJson(json);
 
   /// The article's unique ID.
-  ///
-  /// TODO: Check why sometimes articleId can be null
   @override
-  @JsonKey(name: 'articleId', defaultValue: '')
+  @JsonKey(name: 'articleId', required: true)
   final String articleId;
 
   /// The title of the article.
-  ///
-  /// TODO: Check why sometimes title can be null
   @override
-  @JsonKey(name: 'title', defaultValue: '')
+  @JsonKey(name: 'title', required: true)
   final String title;
 
   /// A brief description of the article.
@@ -688,9 +680,9 @@ class _$ArticleImpl implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {@JsonKey(name: 'articleId', defaultValue: '')
+      {@JsonKey(name: 'articleId', required: true)
       required final String articleId,
-      @JsonKey(name: 'title', defaultValue: '') required final String title,
+      @JsonKey(name: 'title', required: true) required final String title,
       @JsonKey(name: 'description', required: true)
       required final String description,
       final String? body,
@@ -721,17 +713,13 @@ abstract class _Article implements Article {
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   /// The article's unique ID.
-  ///
-  /// TODO: Check why sometimes articleId can be null
   @override
-  @JsonKey(name: 'articleId', defaultValue: '')
+  @JsonKey(name: 'articleId', required: true)
   String get articleId;
 
   /// The title of the article.
-  ///
-  /// TODO: Check why sometimes title can be null
   @override
-  @JsonKey(name: 'title', defaultValue: '')
+  @JsonKey(name: 'title', required: true)
   String get title;
 
   /// A brief description of the article.
@@ -1114,9 +1102,6 @@ mixin _$Collection {
   @JsonKey(name: 'availableLocales', required: true)
   List<String> get availableLocales => throw _privateConstructorUsedError;
 
-  /// List of articles and collections (only returned when using the withStructure option)
-  List<CollectionContent>? get structure => throw _privateConstructorUsedError;
-
   /// Serializes this Collection to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -1151,8 +1136,7 @@ abstract class $CollectionCopyWith<$Res> {
       @JsonKey(name: 'locale', required: true) String locale,
       @JsonKey(name: 'authors', required: true) List<Author> authors,
       @JsonKey(name: 'availableLocales', required: true)
-      List<String> availableLocales,
-      List<CollectionContent>? structure});
+      List<String> availableLocales});
 
   $FBIconCopyWith<$Res>? get icon;
 }
@@ -1189,7 +1173,6 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? locale = null,
     Object? authors = null,
     Object? availableLocales = null,
-    Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
       collectionId: null == collectionId
@@ -1260,10 +1243,6 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      structure: freezed == structure
-          ? _value.structure
-          : structure // ignore: cast_nullable_to_non_nullable
-              as List<CollectionContent>?,
     ) as $Val);
   }
 
@@ -1308,8 +1287,7 @@ abstract class _$$CollectionImplCopyWith<$Res>
       @JsonKey(name: 'locale', required: true) String locale,
       @JsonKey(name: 'authors', required: true) List<Author> authors,
       @JsonKey(name: 'availableLocales', required: true)
-      List<String> availableLocales,
-      List<CollectionContent>? structure});
+      List<String> availableLocales});
 
   @override
   $FBIconCopyWith<$Res>? get icon;
@@ -1345,7 +1323,6 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? locale = null,
     Object? authors = null,
     Object? availableLocales = null,
-    Object? structure = freezed,
   }) {
     return _then(_$CollectionImpl(
       collectionId: null == collectionId
@@ -1416,10 +1393,6 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value._availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      structure: freezed == structure
-          ? _value._structure
-          : structure // ignore: cast_nullable_to_non_nullable
-              as List<CollectionContent>?,
     ));
   }
 }
@@ -1450,11 +1423,9 @@ class _$CollectionImpl implements _Collection {
       @JsonKey(name: 'authors', required: true)
       required final List<Author> authors,
       @JsonKey(name: 'availableLocales', required: true)
-      required final List<String> availableLocales,
-      final List<CollectionContent>? structure})
+      required final List<String> availableLocales})
       : _authors = authors,
-        _availableLocales = availableLocales,
-        _structure = structure;
+        _availableLocales = availableLocales;
 
   factory _$CollectionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CollectionImplFromJson(json);
@@ -1556,22 +1527,9 @@ class _$CollectionImpl implements _Collection {
     return EqualUnmodifiableListView(_availableLocales);
   }
 
-  /// List of articles and collections (only returned when using the withStructure option)
-  final List<CollectionContent>? _structure;
-
-  /// List of articles and collections (only returned when using the withStructure option)
-  @override
-  List<CollectionContent>? get structure {
-    final value = _structure;
-    if (value == null) return null;
-    if (_structure is EqualUnmodifiableListView) return _structure;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   @override
   String toString() {
-    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, authors: $authors, availableLocales: $availableLocales, structure: $structure)';
+    return 'Collection(collectionId: $collectionId, name: $name, description: $description, parentId: $parentId, icon: $icon, helpCenterId: $helpCenterId, organizationId: $organizationId, defaultLocale: $defaultLocale, order: $order, type: $type, path: $path, slug: $slug, featurebaseUrl: $featurebaseUrl, externalUrl: $externalUrl, locale: $locale, authors: $authors, availableLocales: $availableLocales)';
   }
 
   @override
@@ -1604,9 +1562,7 @@ class _$CollectionImpl implements _Collection {
             (identical(other.locale, locale) || other.locale == locale) &&
             const DeepCollectionEquality().equals(other._authors, _authors) &&
             const DeepCollectionEquality()
-                .equals(other._availableLocales, _availableLocales) &&
-            const DeepCollectionEquality()
-                .equals(other._structure, _structure));
+                .equals(other._availableLocales, _availableLocales));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1629,8 +1585,7 @@ class _$CollectionImpl implements _Collection {
       externalUrl,
       locale,
       const DeepCollectionEquality().hash(_authors),
-      const DeepCollectionEquality().hash(_availableLocales),
-      const DeepCollectionEquality().hash(_structure));
+      const DeepCollectionEquality().hash(_availableLocales));
 
   /// Create a copy of Collection
   /// with the given fields replaced by the non-null parameter values.
@@ -1675,8 +1630,7 @@ abstract class _Collection implements Collection {
       @JsonKey(name: 'authors', required: true)
       required final List<Author> authors,
       @JsonKey(name: 'availableLocales', required: true)
-      required final List<String> availableLocales,
-      final List<CollectionContent>? structure}) = _$CollectionImpl;
+      required final List<String> availableLocales}) = _$CollectionImpl;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$CollectionImpl.fromJson;
@@ -1762,10 +1716,6 @@ abstract class _Collection implements Collection {
   @override
   @JsonKey(name: 'availableLocales', required: true)
   List<String> get availableLocales;
-
-  /// List of articles and collections (only returned when using the withStructure option)
-  @override
-  List<CollectionContent>? get structure;
 
   /// Create a copy of Collection
   /// with the given fields replaced by the non-null parameter values.
@@ -2215,9 +2165,6 @@ mixin _$HelpCenter {
   /// The date when the help center was last updated.
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  /// List of collections (only returned when using the withStructure option)
-  List<Collection>? get structure => throw _privateConstructorUsedError;
-
   /// Serializes this HelpCenter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -2247,8 +2194,7 @@ abstract class $HelpCenterCopyWith<$Res> {
       String locale,
       List<String> availableLocales,
       DateTime createdAt,
-      DateTime updatedAt,
-      List<Collection>? structure});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -2279,7 +2225,6 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
       helpCenterId: null == helpCenterId
@@ -2334,10 +2279,6 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      structure: freezed == structure
-          ? _value.structure
-          : structure // ignore: cast_nullable_to_non_nullable
-              as List<Collection>?,
     ) as $Val);
   }
 }
@@ -2363,8 +2304,7 @@ abstract class _$$HelpCenterImplCopyWith<$Res>
       String locale,
       List<String> availableLocales,
       DateTime createdAt,
-      DateTime updatedAt,
-      List<Collection>? structure});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -2393,7 +2333,6 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? structure = freezed,
   }) {
     return _then(_$HelpCenterImpl(
       helpCenterId: null == helpCenterId
@@ -2448,10 +2387,6 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      structure: freezed == structure
-          ? _value._structure
-          : structure // ignore: cast_nullable_to_non_nullable
-              as List<Collection>?,
     ));
   }
 }
@@ -2472,11 +2407,9 @@ class _$HelpCenterImpl implements _HelpCenter {
       required this.locale,
       required final List<String> availableLocales,
       required this.createdAt,
-      required this.updatedAt,
-      final List<Collection>? structure})
+      required this.updatedAt})
       : _navItems = navItems,
-        _availableLocales = availableLocales,
-        _structure = structure;
+        _availableLocales = availableLocales;
 
   factory _$HelpCenterImpl.fromJson(Map<String, dynamic> json) =>
       _$$HelpCenterImplFromJson(json);
@@ -2548,22 +2481,9 @@ class _$HelpCenterImpl implements _HelpCenter {
   @override
   final DateTime updatedAt;
 
-  /// List of collections (only returned when using the withStructure option)
-  final List<Collection>? _structure;
-
-  /// List of collections (only returned when using the withStructure option)
-  @override
-  List<Collection>? get structure {
-    final value = _structure;
-    if (value == null) return null;
-    if (_structure is EqualUnmodifiableListView) return _structure;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   @override
   String toString() {
-    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, searchPlaceholder: $searchPlaceholder, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, structure: $structure)';
+    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, searchPlaceholder: $searchPlaceholder, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -2593,9 +2513,7 @@ class _$HelpCenterImpl implements _HelpCenter {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            const DeepCollectionEquality()
-                .equals(other._structure, _structure));
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2614,8 +2532,7 @@ class _$HelpCenterImpl implements _HelpCenter {
       locale,
       const DeepCollectionEquality().hash(_availableLocales),
       createdAt,
-      updatedAt,
-      const DeepCollectionEquality().hash(_structure));
+      updatedAt);
 
   /// Create a copy of HelpCenter
   /// with the given fields replaced by the non-null parameter values.
@@ -2647,8 +2564,7 @@ abstract class _HelpCenter implements HelpCenter {
       required final String locale,
       required final List<String> availableLocales,
       required final DateTime createdAt,
-      required final DateTime updatedAt,
-      final List<Collection>? structure}) = _$HelpCenterImpl;
+      required final DateTime updatedAt}) = _$HelpCenterImpl;
 
   factory _HelpCenter.fromJson(Map<String, dynamic> json) =
       _$HelpCenterImpl.fromJson;
@@ -2704,10 +2620,6 @@ abstract class _HelpCenter implements HelpCenter {
   /// The date when the help center was last updated.
   @override
   DateTime get updatedAt;
-
-  /// List of collections (only returned when using the withStructure option)
-  @override
-  List<Collection>? get structure;
 
   /// Create a copy of HelpCenter
   /// with the given fields replaced by the non-null parameter values.

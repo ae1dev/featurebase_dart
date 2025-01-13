@@ -2,31 +2,26 @@ part of featurebase_dart;
 
 class HelpCenterEnd extends EndpointBase {
   @override
-  String get _path => '/helpcenter';
+  String get _path => '/help_center';
 
   HelpCenterEnd(super.api);
 
-  /// Get the help center
-  Future<HelpCenter> get(
-      {bool withStructure = true, String locale = 'en'}) async {
-    final Map<String, Object?> map = (await dio.get(_path, queryParameters: {
-      "withStructure": withStructure,
-      "locale": locale,
-    }))
-        .data;
+  /// Get a Single Help Center
+  ///
+  /// This endpoint allows you to retrieve a specific help center by its ID.
+  Future<HelpCenter> getSingleHelpCenter(String id) async {
+    final Map<String, Object?> map =
+        (await dio.get('$_path/help_centers/$id')).data;
 
     return HelpCenter.fromJson(map);
   }
 
-  /// Get an article by its id
-  Future<Article> getArticle(String id, {String locale = 'en'}) async {
+  /// Get Article by ID
+  ///
+  /// Retrieve a specific article by its ID.
+  Future<Article> getArticle(String id) async {
     final Map<String, Object?> map =
-        (await dio.get('$_path/articles', queryParameters: {
-      "articleId": id,
-      "locale": locale,
-    }))
-            .data;
-    var articles = map['results'] as Iterable<dynamic>;
-    return (articles.map((m) => Article.fromJson(m)).toList()).first;
+        (await dio.get('$_path/articles/$id')).data;
+    return Article.fromJson(map);
   }
 }
