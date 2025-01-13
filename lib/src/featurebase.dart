@@ -2,13 +2,13 @@ part of featurebase_dart;
 
 class FeaturebaseApi extends FeaturebaseApiBase {
   FeaturebaseApi.from({
-    super.baseUrl,
+    super.apiKey,
   }) : super.from();
 }
 
 abstract class FeaturebaseApiBase {
-  static String _baseUrl = "https://help.featurebase.app";
-  String get baseApiUrl => _baseUrl;
+  static String _apiKey = "token";
+  String get apiKey => _apiKey;
 
   final Dio _dio = Dio(
     BaseOptions(
@@ -24,10 +24,12 @@ abstract class FeaturebaseApiBase {
   ChangelogEnd get changelog => _changelog;
 
   FeaturebaseApiBase.from({
-    String baseUrl = "https://help.featurebase.app",
+    String apiKey = "token",
   }) {
-    _baseUrl = baseUrl;
-    _dio.options.baseUrl = '$_baseUrl/api/v1';
+    _dio.options.baseUrl = 'https://do.featurebase.app/api/v2';
+
+    _apiKey = apiKey;
+    _dio.options.headers['X-API-Key'] = _apiKey;
 
     _helpCenter = HelpCenterEnd(this);
     _changelog = ChangelogEnd(this);
