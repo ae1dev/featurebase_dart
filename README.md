@@ -1,3 +1,3 @@
-# featurebase_dart
+# # Featurebase (Unofficial) Dart SDK
 
-Used in the https://pub.dev/packages/featurebase package.
+Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at <https://featurebase.app>
