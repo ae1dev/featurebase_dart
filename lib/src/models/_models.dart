@@ -11,3 +11,4 @@ part 'help_center.dart';
 part 'icon.dart';
 part 'nav_item.dart';
 part 'changelog.dart';
+part 'results_pagination.dart';
